@@ -1,7 +1,14 @@
 .navbar {
     background-color: red;
     padding: 20px 0px;
+    position: fixed;
+    width: 100%;
+    transition: all 0.5s ease;
 
+}
+
+.white-navbar {
+    background-color: green;
 }
 
 .navbar-first-row {
@@ -24,6 +31,8 @@
     gap: 50px;
 
 }
+
+
 
 @media only screen and (max-width:768px) {
     .navbar-first-row {
