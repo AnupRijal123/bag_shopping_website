@@ -33,7 +33,7 @@ function Navbar() {
     return (
         <div className={`navbar ${isScreenScrolled === true && 'white-navbar'}`}>
             <div className="navbar-first-row">
-                <h1>facebook logo</h1>
+                <h1>logo</h1>
                 <div>icons</div>
             </div>
             <div className="navbar-second-row">

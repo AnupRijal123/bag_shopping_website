@@ -1,0 +1,33 @@
+.banner-container {
+    background-color: var(--dark-gray-color);
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 7;
+    filter: brightness(60%);
+}
+
+.fade-container {
+    background: linear-gradient(to bottom, transparent, rgba(128, 128, 128, 0.4), rgba(128, 128, 128, 0.8));
+    position: absolute;
+    bottom: 0;
+    z-index: 8;
+    width: 100%;
+    height: 120px;
+}
+
+.banner-content {
+    background-color: yellow;
+    position: absolute;
+    z-index: 9;
+    bottom: 100px;
+    left: 70px;
+
+}
