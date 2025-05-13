@@ -13,7 +13,6 @@ function Navbar() {
                     <p>casual</p>
                     <p>accessories</p>
                     <p>sale</p>
-
                 </div>
             </div>
         </div>
