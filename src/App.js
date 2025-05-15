@@ -1,6 +1,7 @@
 import './styles/App.css';
 import Navbar from './components/Navbar.js';
 import Banner from './components/Banner.js'
+import CardSection from './components/CardSection.js';
 
 function App() {
   return (
@@ -8,12 +9,9 @@ function App() {
       <Navbar />
       <Banner />
 
-      <h1>hello</h1>
-      <h1>hello</h1>
-      <h1>hello</h1>
-      <h1>hello</h1>
-      <h1>hello</h1>
-      <h1>hello</h1>
+      <div className="section-container">
+        <CardSection />
+      </div>
 
     </>
   )
