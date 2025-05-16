@@ -28,14 +28,75 @@ p {
     font-size: 16px;
 }
 
+.small-text {
+    font-size: 12px;
+}
+
 .section-container {
     background-color: pink;
     padding: 30px 70px 0px 70px;
+}
+
+.strike-text {
+    color: blue;
+    text-decoration: line-through;
+}
+
+.coloured-background-section {
+    background-color: var(--dark-gray-color) !important;
+    padding-bottom: 30px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.coloured-background-section-image-container {
+    background-color: Red;
+    overflow: hidden;
+    width: 50%;
+    height: 400px;
+}
+
+.coloured-background-section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s ease;
+}
+
+.coloured-background-section-image:hover {
+    transform: scale(1.5);
+}
+
+.coloured-background-content {
+    background-color: var(--white-color);
+    width: 40%;
+    padding: 20px;
+    height: fit-content;
+}
+
+.social-media-icon-container {
+    background-color: yellow;
+    display: flex;
+    gap: 10px;
 }
 
 @media only screen and (max-width:768px) {
     .section-container {
         background-color: yellow;
         padding: 30px 20px 0px 20px;
+    }
+
+
+    .coloured-background-section-image {
+        width: 100%;
+    }
+
+    .coloured-background-content {
+        background-color: Red;
+        margin: auto;
+        width: 80%;
     }
 }
