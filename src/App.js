@@ -2,6 +2,7 @@ import './styles/App.css';
 import Navbar from './components/Navbar.js';
 import Banner from './components/Banner.js'
 import CardSection from './components/CardSection.js';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
           </div>
         </div>
       </div>
+
+      <Footer />
+
+
 
     </>
   )
