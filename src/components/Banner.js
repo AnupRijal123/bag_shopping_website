@@ -8,7 +8,12 @@ function Banner() {
                 <source src={require('../assets/videos/video1.mp4')} type="video/mp4" />
             </video>
             <div className="fade-container"></div>
-            <div className="banner-content">hello</div>
+            <div className="banner-content">
+                <p className="white-text">Get all types of bags</p>
+                <h2 className="white-text">From us</h2>
+
+
+            </div>
         </div>
     )
 }

@@ -16,25 +16,56 @@ p {
 h1 {
     color: blue;
     font-size: 32px;
+    font-weight: 600;
 }
 
 h2 {
-    color: orange;
+    color: green;
     font-size: 18px;
+    font-weight: 400;
 }
 
 p {
     color: red;
     font-size: 16px;
+    font-weight: 400;
 }
 
 .small-text {
     font-size: 12px;
 }
 
+.white-text {
+    color: var(--white-color);
+}
+
+.black-text {
+    color: var(--black-color);
+}
+
+.dark-gray-text {
+    color: var(--dark-gray-color);
+}
+
+.light-gray-text {
+    color: var(--light-gray-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.scale-hover {
+    transition: transform 0.5s ease;
+}
+
+.scale-hover:hover {
+    transform: scale(1.2);
+}
+
 .section-container {
     background-color: pink;
-    padding: 30px 70px 0px 70px;
+    padding: 30px 70px;
 }
 
 .strike-text {
@@ -44,7 +75,6 @@ p {
 
 .coloured-background-section {
     background-color: var(--dark-gray-color) !important;
-    padding-bottom: 30px !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

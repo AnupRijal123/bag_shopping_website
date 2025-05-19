@@ -42,7 +42,9 @@
     background-color: yellow;
     position: absolute;
     z-index: 9;
-    bottom: 100px;
+    bottom: 120px;
     left: 70px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
