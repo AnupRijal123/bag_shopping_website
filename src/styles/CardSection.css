@@ -1,7 +1,5 @@
 .card-heading-text {
-    color: green;
     text-align: center;
-    background-color: red;
     padding-bottom: 10px;
 }
 
@@ -19,12 +17,11 @@
 
 .card {
     background-color: purple;
-
     position: relative;
 }
 
 .tag {
-    background-color: pink;
+    background-color: var(--dark-gray-color);
     width: fit-content;
     padding: 5px;
     position: absolute;
@@ -34,7 +31,6 @@
 }
 
 .tag-text {
-    color: white;
     font-weight: 600;
 }
 
@@ -46,14 +42,11 @@
 }
 
 .card-item-name-text {
-    color: white;
-    background-color: green;
     padding: 10px 0px;
     cursor: pointer;
 }
 
 .card-price-container {
-    background-color: pink;
     display: flex;
     gap: 5px;
     justify-content: center;
@@ -61,19 +54,18 @@
 }
 
 .read-more-text {
-    color: pink;
+    color: var(--dark-gray-text);
     text-align: center;
     cursor: pointer;
     display: none;
 }
 
+
 .card:hover .card-price-container {
-    background-color: orange;
     display: none;
 }
 
 .card:hover .read-more-text {
-    background-color: green;
     display: block;
 }
 

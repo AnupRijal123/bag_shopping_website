@@ -69,9 +69,17 @@ p {
 }
 
 .strike-text {
-    color: blue;
     text-decoration: line-through;
 }
+
+.link-text {
+    transition: color 0.3s ease;
+}
+
+.link-text:hover {
+    color: #808080;
+}
+
 
 .coloured-background-section {
     background-color: var(--dark-gray-color) !important;
@@ -101,7 +109,6 @@ p {
 }
 
 .coloured-background-content {
-    background-color: var(--white-color);
     width: 40%;
     padding: 20px;
     height: fit-content;
@@ -113,19 +120,50 @@ p {
     gap: 10px;
 }
 
+.image-slider-section-container {
+    background-color: red;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.slider-image-item {
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
+    transition: transform 0.5s ease;
+}
+
+.slider-image:hover {
+    transform: scale(1);
+}
+
 @media only screen and (max-width:768px) {
     .section-container {
         background-color: yellow;
         padding: 30px 20px 0px 20px;
     }
 
-
-    .coloured-background-section-image {
+    .coloured-background-section-image-container {
+        background-color: pink;
         width: 100%;
     }
 
+
+
     .coloured-background-content {
-        background-color: Red;
         margin: auto;
         width: 80%;
     }

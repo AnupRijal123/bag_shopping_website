@@ -21,12 +21,36 @@ function App() {
         </div>
 
         <div className="coloured-background-content">
-          <h1>Follow us for updates and exclusive offers on</h1>
+          <h1 className="white-text">Follow us for updates and exclusive offers on</h1>
           <div className="social-media-icon-container">
             <p>f</p>
             <p>i</p>
           </div>
         </div>
+      </div>
+
+      <div className="image-slider-section-container">
+        <div className="slider-image-item">
+          <img className="slider-image" src={require('./assets/images/bannerimage.jpg')} alt="items-image" />
+        </div>
+
+
+
+        <div className="slider-image-item">
+          <img className="slider-image" src={require('./assets/images/bannerimage.jpg')} alt="items-image" />
+        </div>
+        <div className="slider-image-item">
+          <img className="slider-image" src={require('./assets/images/bannerimage.jpg')} alt="items-image" />
+        </div>
+        <div className="slider-image-item">
+          <img className="slider-image" src={require('./assets/images/bannerimage.jpg')} alt="items-image" />
+        </div>
+        <div className="slider-image-item">
+          <img className="slider-image" src={require('./assets/images/bannerimage.jpg')} alt="items-image" />
+        </div>
+
+
+
       </div>
 
       <Footer />
