@@ -6,11 +6,8 @@ function Navbar() {
     const [isScreenScrolled, setIsScreenScrolled] = useState(false);
 
     useEffect(() => {
-        console.log('mounted');
 
         function handleScroll() {
-            console.log('scrolled');
-            console.log(window.scrollY);
 
             if (window.scrollY > 0) {
                 setIsScreenScrolled(true);

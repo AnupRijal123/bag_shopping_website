@@ -1,10 +1,45 @@
 import '../styles/HomePage.css';
 import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
+import { useEffect, useRef } from 'react';
 
 
 
 function HomePage() {
+
+    const imageSliderRef = useRef();
+
+
+    useEffect(() => {
+        console.log('mounted');
+        console.log(imageSliderRef.current);
+
+        //image slider scrolling 
+        const slideInterval = setInterval(() => {
+
+            console.log('slide');
+
+            console.log(imageSliderRef.current.scrollLeft);
+
+            console.log(imageSliderRef.current.scrollWidth);
+
+            if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
+                imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
+            } else {
+                console.log('reached at end')
+                //scroll to beginning
+                imageSliderRef.current.scrollTo(0, 0);
+            }
+
+
+        }, 3000);
+
+        return () => {
+            clearInterval(slideInterval);
+        }
+
+    }, []);
+
     return (
         <>
             <Banner />
@@ -30,7 +65,7 @@ function HomePage() {
 
 
             <h1 className="center-aligned-text heading-text">Our Designs</h1>
-            <div className="image-slider-section-container">
+            <div ref={imageSliderRef} className="image-slider-section-container">
                 <div className="slider-image-item">
                     <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
                 </div>
