@@ -64,7 +64,7 @@ function HomePage() {
             </div>
 
 
-            <h1 className="center-aligned-text heading-text">Our Designs</h1>
+            <h1 className="center-aligned-text heading-text black-text">Our Designs</h1>
             <div ref={imageSliderRef} className="image-slider-section-container">
                 <div className="slider-image-item">
                     <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />

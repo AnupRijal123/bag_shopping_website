@@ -65,7 +65,7 @@ p {
 
 .section-container {
     background-color: pink;
-    padding: 30px 70px;
+    padding: 100px 70px;
 }
 
 .strike-text {
@@ -133,7 +133,7 @@ p {
 @media only screen and (max-width:768px) {
     .section-container {
         background-color: yellow;
-        padding: 30px 20px 0px 20px;
+        padding: 30px 20px;
     }
 
     .coloured-background-section-image-container {
