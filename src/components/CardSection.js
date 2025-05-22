@@ -3,7 +3,7 @@ import '../styles/CardSection.css';
 function CardSection() {
     return (
         <>
-            <h1 className="card-heading-text black-text">card heading</h1>
+            <h1 className="heading-text center-aligned-text black-text">card heading</h1>
 
             <div className="card-container">
                 <div className="card">
