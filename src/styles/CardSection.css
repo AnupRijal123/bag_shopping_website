@@ -39,6 +39,11 @@
     height: 250px;
     object-fit: fill;
     cursor: pointer;
+    transition: filter 0.1s ease;
+}
+
+.card:hover .card-image {
+    filter: brightness(50%);
 }
 
 .card-item-name-text {

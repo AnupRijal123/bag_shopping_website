@@ -64,31 +64,38 @@ function HomePage() {
             </div>
 
 
-            <h1 className="center-aligned-text heading-text black-text">Our Designs</h1>
-            <div ref={imageSliderRef} className="image-slider-section-container">
-                <div className="slider-image-item">
-                    <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+            <div className="section-container">
+                <h1 className="section-heading-text center-aligned-text heading-text black-text">Our Designs</h1>
+
+                <div ref={imageSliderRef} className="image-slider-section-container">
+                    <div className="slider-image-item">
+                        <div className="slider-image-description">
+                            <p>bag name</p>
+                            <h2>See product</h2>
+                        </div>
+                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                    </div>
+
+                    {/* <div className="slider-image-item">
+                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                    </div>
+                    <div className="slider-image-item">
+                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                    </div>
+                    <div className="slider-image-item">
+                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                    </div>
+                    <div className="slider-image-item">
+                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                    </div> */}
+
+
+
+
+
+
+
                 </div>
-
-                <div className="slider-image-item">
-                    <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                </div>
-                <div className="slider-image-item">
-                    <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                </div>
-                <div className="slider-image-item">
-                    <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                </div>
-                <div className="slider-image-item">
-                    <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                </div>
-
-
-
-
-
-
-
             </div>
         </>
     )
