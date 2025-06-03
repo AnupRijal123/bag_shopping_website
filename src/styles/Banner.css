@@ -39,7 +39,7 @@
 }
 
 .banner-content {
-    background-color: yellow;
+    /* background-color: yellow; */
     position: absolute;
     z-index: 9;
     bottom: 120px;

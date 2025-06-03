@@ -14,13 +14,13 @@ function App() {
       {/* <div className="button-layout button-transparent-background button-white-border">
         <div className="button-background-container button-white-background"></div>
         <p className="button-text white-text">hello</p>
-      </div> */}
+      </div>
 
 
       <div className="button-layout button-transparent-background button-gray-border">
         <div className="button-background-container button-gray-background"></div>
         <p className="button-text dark-gray-text">hello</p>
-      </div>
+      </div> */}
 
       <Footer />
 

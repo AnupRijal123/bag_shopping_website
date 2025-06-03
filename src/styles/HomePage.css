@@ -29,9 +29,11 @@
 }
 
 .slider-image-description {
-    background-color: yellow;
     position: absolute;
     z-index: 1;
     right: 200px;
     bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

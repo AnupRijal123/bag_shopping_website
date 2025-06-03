@@ -70,8 +70,12 @@ function HomePage() {
                 <div ref={imageSliderRef} className="image-slider-section-container">
                     <div className="slider-image-item">
                         <div className="slider-image-description">
-                            <p>bag name</p>
-                            <h2>See product</h2>
+                            <p className="white-text">bag name</p>
+
+                            <div className="button-layout button-transparent-background button-white-border">
+                                <div className="button-background-container button-white-background"></div>
+                                <p className="button-text white-text">see prodct</p>
+                            </div>
                         </div>
                         <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
                     </div>

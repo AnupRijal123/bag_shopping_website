@@ -36,12 +36,10 @@
 
 @media only screen and (max-width:768px) {
     .navbar-first-row {
-        background-color: purple;
         padding: 0px 20px;
     }
 
     .navbar-second-row-items-contanier {
-        background-color: yellow;
         gap: 20px;
     }
 }

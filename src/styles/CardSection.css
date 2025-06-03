@@ -4,7 +4,7 @@
 }
 
 .card-container {
-    background-color: yellow;
+    /* background-color: yellow; */
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: space-evenly;
@@ -16,7 +16,7 @@
 }
 
 .card {
-    background-color: purple;
+    /* background-color: purple; */
     position: relative;
 }
 
@@ -76,7 +76,7 @@
 
 @media only screen and (max-width:1300px) {
     .card-container {
-        background-color: green;
+        /* background-color: green; */
         grid-row-gap: 30px;
     }
 }
@@ -84,7 +84,7 @@
 
 @media only screen and (max-width:1200px) {
     .card-container {
-        background-color: orange;
+        /* background-color: orange; */
         grid-template-columns: auto auto auto;
     }
 }
@@ -118,7 +118,7 @@
     }
 
     .card-container {
-        background-color: black;
+        /* background-color: black; */
         justify-content: space-between;
     }
 }

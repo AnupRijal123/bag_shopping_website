@@ -45,7 +45,7 @@ function Footer() {
 
             <div className="footer-second-row">
                 <p className="white-text">All Rights Reserved,{currentYear}</p>
-                <p className="small-text light-gray-text">Website developed by Anup Rijal</p>
+                <p className="small-text light-gray-text">Website designed and coded by Anup Rijal</p>
             </div>
 
 
