@@ -80,6 +80,12 @@ function HomePage() {
                         <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
                     </div>
 
+
+                    <div className="slider-image-item">
+                        hello
+                    </div>
+
+
                     {/* <div className="slider-image-item">
                         <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
                     </div>

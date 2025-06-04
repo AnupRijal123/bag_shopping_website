@@ -30,4 +30,8 @@
         gap: 20px;
         padding: 30px 20px;
     }
+
+    .footer-second-row {
+        flex-direction: column;
+    }
 }
