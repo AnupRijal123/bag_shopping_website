@@ -8,44 +8,66 @@ import { useEffect, useRef } from 'react';
 function HomePage() {
 
     const imageSliderRef = useRef();
-
-
-    useEffect(() => {
-        console.log('mounted');
-        console.log(imageSliderRef.current);
-
-        //image slider scrolling 
-        const slideInterval = setInterval(() => {
-
-            console.log('slide');
-
-            console.log(imageSliderRef.current.scrollLeft);
-
-            console.log(imageSliderRef.current.scrollWidth);
-
-            if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
-                imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
-            } else {
-                console.log('reached at end')
-                //scroll to beginning
-                imageSliderRef.current.scrollTo(0, 0);
-            }
-
-
-        }, 3000);
-
-        return () => {
-            clearInterval(slideInterval);
+    const newCollectionArray = [
+        {
+            id: 1,
+            name: 'Nike',
+            img: 'bannerimage.jpg',
+            originalPrice: 2500,
+            discountedPrice: 1000
+        },
+        {
+            id: 2,
+            name: 'Addidas',
+            img: 'bannerimage.jpg',
+            originalPrice: 2100,
+            discountedPrice: 1000
+        },
+        {
+            id: 3,
+            name: 'Puma',
+            img: 'bannerimage.jpg',
+            originalPrice: 1800,
+            discountedPrice: 1000
+        },
+        {
+            id: 4,
+            name: 'Vans',
+            img: 'bannerimage.jpg',
+            originalPrice: 1000,
+            discountedPrice: 800
         }
+    ];
 
-    }, []);
+
+    // useEffect(() => {
+
+    //     //image slider scrolling 
+    //     const slideInterval = setInterval(() => {
+
+
+    //         if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
+    //             imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
+    //         } else {
+    //             //scroll to beginning
+    //             imageSliderRef.current.scrollTo(0, 0);
+    //         }
+
+
+    //     }, 3000);
+
+    //     return () => {
+    //         clearInterval(slideInterval);
+    //     }
+
+    // }, []);
 
     return (
         <>
             <Banner />
 
             <div className="section-container">
-                <CardSection />
+                <CardSection cardItemsArray={newCollectionArray} cardItemsHeadingText="New Collection" />
             </div>
 
             <div className="section-container coloured-background-section">
@@ -74,7 +96,7 @@ function HomePage() {
 
                             <div className="button-layout button-transparent-background button-white-border">
                                 <div className="button-background-container button-white-background"></div>
-                                <p className="button-text white-text">see prodct</p>
+                                <p className="button-text white-text">see product</p>
                             </div>
                         </div>
                         <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />

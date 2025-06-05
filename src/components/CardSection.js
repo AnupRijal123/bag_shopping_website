@@ -1,45 +1,14 @@
 import '../styles/CardSection.css';
 
-function CardSection() {
+function CardSection(props) {
 
-    const cardItems = [
-        {
-            id: 1,
-            name: 'Nike',
-            img: 'bannerimage.jpg',
-            originalPrice: 2500,
-            discountedPrice: 1000
-        },
-        {
-            id: 2,
-            name: 'Addidas',
-            img: 'bannerimage.jpg',
-            originalPrice: 2100,
-            discountedPrice: 1000
-        },
-        {
-            id: 3,
-            name: 'Puma',
-            img: 'bannerimage.jpg',
-            originalPrice: 1800,
-            discountedPrice: 1000
-        },
-        {
-            id: 4,
-            name: 'Vans',
-            img: 'bannerimage.jpg',
-            originalPrice: 1000,
-            discountedPrice: 1000
-        },
-
-    ];
     return (
         <>
-            <h1 className="section-heading-text center-aligned-text black-text">card heading</h1>
+            <h1 className="section-heading-text center-aligned-text black-text">{props.cardItemsHeadingText}</h1>
 
             <div className="card-container">
 
-                {cardItems.map((item) => (
+                {props.cardItemsArray.map((item) => (
                     <div className="card" key={item.id}>
                         <div className="tag">
                             <p className="small-text white-text tag-text">Out Of Stock</p>

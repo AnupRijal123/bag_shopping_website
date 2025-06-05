@@ -2,7 +2,6 @@ import '../styles/Banner.css';
 
 function Banner() {
     function handleScrollDown() {
-        console.log('scroll down clicked');
         window.scrollBy({
             top: window.innerHeight - 120,
             behavior: 'smooth'
@@ -10,9 +9,9 @@ function Banner() {
     }
     return (
         <div className="banner-container">
-            <video className="banner-video" autoPlay muted loop>
+            {/* <video className="banner-video" autoPlay muted loop>
                 <source src={require('../assets/videos/video1.mp4')} type="video/mp4" />
-            </video>
+            </video> */}
             <div className="fade-container"></div>
             <div className="banner-content">
                 <p className="white-text">Get all types of bags</p>
