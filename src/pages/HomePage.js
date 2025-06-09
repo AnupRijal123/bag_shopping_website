@@ -1,6 +1,7 @@
 import '../styles/HomePage.css';
 import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
+import SocialMediaSection from '../components/SocialMediaSection.js';
 import { useEffect, useRef } from 'react';
 
 
@@ -78,10 +79,9 @@ function HomePage() {
 
                 <div className="coloured-background-content">
                     <h1 className="white-text">Follow us for updates and exclusive offers on</h1>
-                    <div className="social-media-icon-container">
-                        <p>f</p>
-                        <p>i</p>
-                    </div>
+
+
+                    <SocialMediaSection />
                 </div>
             </div>
 

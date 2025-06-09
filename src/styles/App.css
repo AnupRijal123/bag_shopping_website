@@ -124,11 +124,6 @@ p {
     height: fit-content;
 }
 
-.social-media-icon-container {
-    /* background-color: purple; */
-    display: flex;
-    gap: 10px;
-}
 
 
 .button-layout {

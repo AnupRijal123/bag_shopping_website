@@ -1,4 +1,5 @@
 import '../styles/Footer.css';
+import SocialMediaSection from './SocialMediaSection.js';
 
 function Footer() {
 
@@ -26,10 +27,9 @@ function Footer() {
 
                     <div>
                         <p className="white-text">social media</p>
-                        <div className="social-media-icon-container">
-                            <p>f</p>
-                            <p>i</p>
-                        </div>
+
+
+                        <SocialMediaSection />
                     </div>
 
 
