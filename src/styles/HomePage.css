@@ -1,5 +1,4 @@
 .image-slider-section-container {
-    background-color: red;
     width: 100%;
     height: 80vh;
     display: flex;
@@ -31,9 +30,10 @@
 .slider-image-description {
     position: absolute;
     z-index: 1;
-    right: 200px;
-    bottom: 100px;
+    right: 100px;
+    bottom: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 30%;
 }

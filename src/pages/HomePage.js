@@ -45,6 +45,24 @@ function HomePage() {
         }
     ];
 
+    const sliderImageArray = [
+        {
+            id: 1,
+            name: 'Luios viton aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa asdasdas assssssssssss',
+            img: 'hello'
+        },
+        {
+            id: 2,
+            name: 'adiadas',
+            img: 'hello'
+        },
+        {
+            id: 2,
+            name: 'vans',
+            img: 'hello'
+        },
+    ];
+
 
     // useEffect(() => {
 
@@ -95,42 +113,22 @@ function HomePage() {
                 <h1 className="section-heading-text center-aligned-text heading-text black-text">Our Designs</h1>
 
                 <div ref={imageSliderRef} className="image-slider-section-container">
-                    <div className="slider-image-item">
-                        <div className="slider-image-description">
-                            <p className="white-text">bag name</p>
 
-                            <div className="button-layout button-transparent-background button-white-border">
-                                <div className="button-background-container button-white-background"></div>
-                                <p className="button-text white-text">see product</p>
+                    {sliderImageArray.map((item) => (
+
+                        <div className="slider-image-item" key={item.id}>
+                            <div className="slider-image-description">
+                                <p className="white-text">{item.name}</p>
+
+                                <div className="button-layout button-transparent-background button-white-border">
+                                    <div className="button-background-container button-white-background"></div>
+                                    <p className="button-text white-text">see more</p>
+                                </div>
                             </div>
+                            <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
                         </div>
-                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                    </div>
 
-
-                    <div className="slider-image-item">
-                        hello
-                    </div>
-
-
-                    {/* <div className="slider-image-item">
-                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                    </div>
-                    <div className="slider-image-item">
-                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                    </div>
-                    <div className="slider-image-item">
-                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                    </div>
-                    <div className="slider-image-item">
-                        <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
-                    </div> */}
-
-
-
-
-
-
+                    ))}
 
                 </div>
             </div>
