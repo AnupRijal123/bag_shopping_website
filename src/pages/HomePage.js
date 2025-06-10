@@ -15,28 +15,33 @@ function HomePage() {
             name: 'Nike',
             img: 'bannerimage.jpg',
             originalPrice: 2500,
-            discountedPrice: 1000
+            discountPercentage: 10,
+            inStockQuantity: 0,
         },
         {
             id: 2,
             name: 'Addidas',
             img: 'bannerimage.jpg',
             originalPrice: 2100,
-            discountedPrice: 1000
+            discountPercentage: 10,
+            inStockQuantity: 200,
         },
         {
             id: 3,
             name: 'Puma',
             img: 'bannerimage.jpg',
             originalPrice: 1800,
-            discountedPrice: 1000
+            discountPercentage: 5,
+            inStockQuantity: 200,
+
         },
         {
             id: 4,
             name: 'Vans',
             img: 'bannerimage.jpg',
             originalPrice: 1000,
-            discountedPrice: 800
+            discountPercentage: null,
+            inStockQuantity: 5,
         }
     ];
 
