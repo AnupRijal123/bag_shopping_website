@@ -30,8 +30,6 @@ function Navbar() {
     }, []);
 
     function goToCategoryPage(value) {
-        console.log('link clicked');
-        console.log(value);
         navigate(`/category/${value}`);
     }
 
@@ -39,13 +37,17 @@ function Navbar() {
         <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'}`}>
             <div className="navbar-first-row">
                 <h1>Arjun Bags</h1>
-                <div>icons</div>
+                <div className="navbar-first-row-items">
+                    <p className="white-text cursor-pointer scale-hover">Home</p>
+                    <p className="white-text cursor-pointer scale-hover">Search</p>
+                    <p className="white-text cursor-pointer scale-hover">Cart</p>
+                </div>
             </div>
             <div className="navbar-second-row">
                 <div className="navbar-second-row-items-contanier">
                     <p onClick={() => { goToCategoryPage('backpacks') }} className="white-text cursor-pointer scale-hover">backpacks</p>
                     <p onClick={() => { goToCategoryPage('handbags') }} className="white-text cursor-pointer scale-hover">handbags</p>
-                    <p onClick={() => { goToCategoryPage('ladiesbags') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
+                    <p onClick={() => { goToCategoryPage('ladies bags') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
                     <p onClick={() => { goToCategoryPage('others') }} className="white-text cursor-pointer scale-hover">others</p>
                     <p onClick={() => { goToCategoryPage('sale') }} className="white-text cursor-pointer scale-hover">sale</p>
                 </div>

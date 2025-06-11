@@ -1,7 +1,11 @@
 import '../styles/CategoryListingPage.css';
 import CardSection from '../components/CardSection.js';
+import { useParams } from 'react-router';
 
 function CategoryListingPage() {
+    const urlCategory = useParams();
+    console.log(urlCategory);
+
     const categoryArray = [
         {
             id: 1,
@@ -44,7 +48,7 @@ function CategoryListingPage() {
         <div className="category-container ">
             <div className="top-container"></div>
             <div className="section-container">
-                <CardSection cardItemsArray={categoryArray} cardItemsHeadingText="cateeegory" />
+                <CardSection cardItemsArray={categoryArray} cardItemsHeadingText={urlCategory.items} />
             </div>
         </div>
     )
