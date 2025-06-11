@@ -1,7 +1,9 @@
 import './styles/App.css';
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
-import HomePage from './pages/HomePage.js'
+import HomePage from './pages/HomePage.js';
+import CategoryListingPage from './pages/CategoryListingPage.js';
+import { BrowserRouter, Routes, Route } from 'react-router';
 
 
 function App() {
@@ -9,7 +11,22 @@ function App() {
     <>
       <Navbar />
 
-      <HomePage />
+      <BrowserRouter>
+
+        <Routes>
+
+          <Route path="/" element={<HomePage />} />
+
+
+          <Route path="/category" element={<CategoryListingPage />} />
+
+
+        </Routes>
+
+
+      </BrowserRouter>
+
+
 
       {/* <div className="button-layout button-transparent-background button-white-border">
         <div className="button-background-container button-white-background"></div>

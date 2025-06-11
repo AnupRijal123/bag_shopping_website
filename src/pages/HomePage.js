@@ -57,7 +57,7 @@ function HomePage() {
             img: 'hello'
         },
         {
-            id: 2,
+            id: 3,
             name: 'vans',
             img: 'hello'
         },
@@ -122,7 +122,7 @@ function HomePage() {
 
                                 <div className="button-layout button-transparent-background button-white-border">
                                     <div className="button-background-container button-white-background"></div>
-                                    <p className="button-text white-text">see more</p>
+                                    <p className="button-text white-text">see product</p>
                                 </div>
                             </div>
                             <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
