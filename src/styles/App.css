@@ -65,7 +65,7 @@ p {
 }
 
 .section-container {
-    /* background-color: pink; */
+    background-color: pink;
     padding: 100px 70px;
 }
 
@@ -186,6 +186,12 @@ p {
 
 .button-layout:hover .dark-gray-text {
     color: var(--white-color);
+}
+
+.top-container {
+    background-color: var(--dark-gray-color);
+    height: 195px;
+    width: 100%;
 }
 
 @media only screen and (max-width:768px) {

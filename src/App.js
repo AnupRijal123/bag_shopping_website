@@ -9,16 +9,16 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 function App() {
   return (
     <>
-      <Navbar />
 
       <BrowserRouter>
+        <Navbar />
 
         <Routes>
 
           <Route path="/" element={<HomePage />} />
 
 
-          <Route path="/category" element={<CategoryListingPage />} />
+          <Route path="/category/:items" element={<CategoryListingPage />} />
 
 
         </Routes>

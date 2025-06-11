@@ -1,9 +1,12 @@
 import '../styles/Navbar.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 function Navbar() {
 
     const [isScreenScrolled, setIsScreenScrolled] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -26,6 +29,11 @@ function Navbar() {
 
     }, []);
 
+    function goToCategoryPage(value) {
+        console.log('link clicked');
+        console.log(value);
+        navigate(`/category/${value}`);
+    }
 
     return (
         <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'}`}>
@@ -35,10 +43,11 @@ function Navbar() {
             </div>
             <div className="navbar-second-row">
                 <div className="navbar-second-row-items-contanier">
-                    <p className="white-text cursor-pointer scale-hover">backpacks</p>
-                    <p className="white-text cursor-pointer scale-hover">handbags</p>
-                    <p className="white-text cursor-pointer scale-hover">others</p>
-                    <p className="white-text cursor-pointer scale-hover">sale</p>
+                    <p onClick={() => { goToCategoryPage('backpacks') }} className="white-text cursor-pointer scale-hover">backpacks</p>
+                    <p onClick={() => { goToCategoryPage('handbags') }} className="white-text cursor-pointer scale-hover">handbags</p>
+                    <p onClick={() => { goToCategoryPage('ladiesbags') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
+                    <p onClick={() => { goToCategoryPage('others') }} className="white-text cursor-pointer scale-hover">others</p>
+                    <p onClick={() => { goToCategoryPage('sale') }} className="white-text cursor-pointer scale-hover">sale</p>
                 </div>
             </div>
         </div>
