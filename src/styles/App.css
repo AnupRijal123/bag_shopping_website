@@ -11,6 +11,7 @@ h2,
 p {
     margin: 0;
     letter-spacing: 1px;
+    word-wrap: break-word;
 }
 
 h1 {
@@ -192,6 +193,14 @@ p {
     background-color: var(--dark-gray-color);
     height: 195px;
     width: 100%;
+}
+
+.button-container {
+    background-color: purple;
+    padding: 20px 0px;
+    display: flex;
+    gap: 20px;
+
 }
 
 @media only screen and (max-width:768px) {

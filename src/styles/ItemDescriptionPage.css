@@ -1,0 +1,41 @@
+.item-description-container {
+    background-color: yellow;
+    min-height: 100vh;
+}
+
+.item-description-heading-text {
+    background-color: orange;
+    width: 100%;
+    margin: auto;
+    padding: 20px 50px;
+    box-sizing: border-box;
+
+}
+
+.item-row {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item-image-container {
+    background-color: pink;
+    width: 350px;
+    height: 350px;
+}
+
+.item-content-container {
+    background-color: green;
+    width: 50%;
+    padding: 0px 20px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width:768px) {
+    .item-content-container {
+        background-color: blue;
+        width: 80%;
+    }
+
+}
