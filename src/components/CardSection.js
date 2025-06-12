@@ -1,8 +1,17 @@
 import '../styles/CardSection.css';
+import { useNavigate } from 'react-router';
 
 function CardSection(props) {
+
+    const navigate = useNavigate();
     console.log(props);
     console.log(props.cardItemsArray);
+
+    function goToItemDescription(itemId, itemCategory) {
+        console.log('card clicked');
+        console.log(itemId);
+        navigate(`/category/${itemCategory}/${itemId}`);
+    }
 
     return (
         <>
@@ -11,7 +20,7 @@ function CardSection(props) {
             <div className="card-container">
 
                 {props.cardItemsArray.map((item) => (
-                    <div className="card" key={item.id}>
+                    <div onClick={() => { goToItemDescription(item.id, item.category) }} className="card" key={item.id}>
                         <div className="tag">
                             {item.inStockQuantity === 0 ?
                                 (<p className="small-text white-text tag-text">Out Of Stock</p>

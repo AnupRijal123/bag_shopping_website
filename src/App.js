@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import HomePage from './pages/HomePage.js';
 import CategoryListingPage from './pages/CategoryListingPage.js';
+import ItemDescriptionPage from './pages/ItemDescriptionPage.js';
 import { BrowserRouter, Routes, Route } from 'react-router';
 
 
@@ -19,6 +20,8 @@ function App() {
 
 
           <Route path="/category/:items" element={<CategoryListingPage />} />
+
+          <Route path="/category/:items/:id" element={<ItemDescriptionPage />} />
 
 
         </Routes>
