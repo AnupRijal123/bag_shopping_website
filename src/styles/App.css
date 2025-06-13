@@ -215,10 +215,20 @@ p {
     cursor: pointer;
 }
 
+.custom-select-container .placeholder-text-container {
+    background-color: pink;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 .custom-select-container .selected-text-container {
     position: absolute;
     top: 10px;
     left: 10px;
+    background-color: white;
+    z-index: 1;
+    width: 110px;
 }
 
 .custom-select-container .down-arrow-container {

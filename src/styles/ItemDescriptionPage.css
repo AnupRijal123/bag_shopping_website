@@ -3,21 +3,16 @@
 }
 
 .item-description-heading-text {
-    width: 100%;
-    margin: auto;
-    padding: 20px 50px;
-    box-sizing: border-box;
-
+    padding-bottom: 20px;
 }
 
 .item-row {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
 .item-image-container {
-    background-color: pink;
+    background-color: red;
     width: 350px;
     height: 350px;
 }
@@ -30,7 +25,9 @@
 
 @media only screen and (max-width:768px) {
     .item-content-container {
-        width: 80%;
+        width: 100%;
+        padding: 0px;
     }
+
 
 }

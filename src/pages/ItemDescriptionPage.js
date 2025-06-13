@@ -1,73 +1,91 @@
 import '../styles/ItemDescriptionPage.css';
+import { useState, useRef } from 'react';
 
 function ItemDescriptionPage() {
+
+    const [selectedColour, setSelectedColour] = useState(null);
+    const dropdownRef = useRef();
+
+    function handleSelectColour(value) {
+        console.log('colour option clicked', value);
+        setSelectedColour(value);
+
+        //closing dropdown after option is clicked
+        dropdownRef.current.style.height = '0px';
+
+    }
+
+
     return (
         <div className="item-description-container">
             <div className="top-container"></div>
-            <h1 className="item-description-heading-text">Nike Bag aaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasdasssssssssssssssssssssssssssssssssssss</h1>
 
-            <div className="item-row">
-                <div className="item-image-container">1</div>
 
-                <div className="item-content-container">
+            <div className="section-container">
+                <h1 className="item-description-heading-text black-text">Nike Bag aaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasdasssssssssssssssssssssssssssssssssssss</h1>
 
-                    <div className="custom-select-container">
-                        <div className="selected-container">
-                            <div className="selected-text-container">select colour</div>
-                            <div className="down-arrow-container"></div>
+                <div className="item-row">
+                    <div className="item-image-container">1</div>
+
+                    <div className="item-content-container">
+
+                        <div className="custom-select-container">
+                            <div className="selected-container">
+                                <div className="placeholder-text-container">choose colour</div>
+                                <div className="selected-text-container">{selectedColour}</div>
+
+                                <div className="down-arrow-container"></div>
+                            </div>
+                            <div ref={dropdownRef} className="dropdown-container">
+                                <p onClick={() => { handleSelectColour('red') }} className="dropdown-option-text">red</p>
+                                <p onClick={() => { handleSelectColour('green') }} className="dropdown-option-text">green</p>
+                            </div>
                         </div>
-                        <div className="dropdown-container">
-                            <p className="dropdown-option-text">red</p>
-                            <p className="dropdown-option-text">green</p>
-                            <p className="dropdown-option-text">blue</p>
-                            <p className="dropdown-option-text">red</p>
-                            <p className="dropdown-option-text">green</p>
-                            <p className="dropdown-option-text">blue</p>
+
+                        <div className="button-container">
+
+                            <div className="button-layout button-transparent-background button-gray-border">
+                                <div className="button-background-container button-gray-background"></div>
+                                <p className="button-text dark-gray-text">Buy</p>
+                            </div>
+
+                            <div className="button-layout button-transparent-background button-gray-border">
+                                <div className="button-background-container button-gray-background"></div>
+                                <p className="button-text dark-gray-text">Add to cart</p>
+                            </div>
+
+
                         </div>
+
+                        <p>
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                            this is description
+                        </p>
+
+
+
                     </div>
-
-                    <div className="button-container">
-
-                        <div className="button-layout button-transparent-background button-gray-border">
-                            <div className="button-background-container button-gray-background"></div>
-                            <p className="button-text dark-gray-text">Buy</p>
-                        </div>
-
-                        <div className="button-layout button-transparent-background button-gray-border">
-                            <div className="button-background-container button-gray-background"></div>
-                            <p className="button-text dark-gray-text">Add to cart</p>
-                        </div>
-
-
-                    </div>
-
-                    <p>
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                        this is description
-                    </p>
-
 
 
                 </div>
-
-
             </div>
+
         </div>
     )
 }
