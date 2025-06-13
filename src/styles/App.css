@@ -129,7 +129,7 @@ p {
 
 
 .button-layout {
-    cursor: pointer;
+    cursor: pwhite-colorointer;
     position: relative;
     width: 105px;
     height: 40px;
@@ -196,12 +196,78 @@ p {
 }
 
 .button-container {
-    background-color: purple;
     padding: 20px 0px;
     display: flex;
     gap: 20px;
 
 }
+
+.custom-select-container {
+    width: 200px;
+    height: 40px;
+    position: relative;
+}
+
+.custom-select-container .selected-container {
+    height: 100%;
+    position: relative;
+    border: 1px solid var(--dark-gray-color);
+    cursor: pointer;
+}
+
+.custom-select-container .selected-text-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.custom-select-container .down-arrow-container {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.custom-select-container .dropdown-container {
+    background-color: var(--dark-gray-color);
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 42px;
+    height: 0px;
+    transition: height 0.2s ease;
+    overflow: auto;
+
+
+}
+
+.custom-select-container .dropdown-container::-webkit-scrollbar {
+    background-color: var(--dark-gray-color);
+    width: 5px;
+}
+
+.custom-select-container .dropdown-container::-webkit-scrollbar-thumb {
+    background-color: var(--white-color);
+    border-radius: 10px;
+}
+
+.custom-select-container:hover .dropdown-container {
+    height: 75px;
+}
+
+.custom-select-container .dropdown-option-text {
+    padding: 3px 10px;
+    cursor: pointer;
+    color: var(--white-color);
+}
+
+.custom-select-container .dropdown-option-text:hover {
+    background-color: var(--light-gray-color);
+}
+
+
 
 @media only screen and (max-width:768px) {
     .section-container {
