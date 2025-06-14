@@ -282,6 +282,16 @@ p {
     background-color: var(--light-gray-color);
 }
 
+.arrow-icon-image {
+    width: 20px;
+    padding: 5px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.arrow-icon-image:hover {
+    background-color: var(--light-gray-color);
+}
 
 
 @media only screen and (max-width:768px) {

@@ -12,9 +12,8 @@
 }
 
 .item-image-container {
-    background-color: red;
     width: 350px;
-    height: 400px;
+    height: 420px;
 }
 
 .image-container {
@@ -37,7 +36,7 @@
 }
 
 .image-navigate-button-container {
-    background-color: pink;
+    padding-top: 5px;
     display: flex;
     justify-content: center;
     gap: 40px;

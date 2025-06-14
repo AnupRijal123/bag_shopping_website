@@ -43,8 +43,8 @@ function ItemDescriptionPage() {
                         </div>
 
                         <div className="image-navigate-button-container">
-                            <div>left</div>
-                            <div>right</div>
+                            <img className="arrow-icon-image" src={require('../assets/icons/left_arrow.png')} alt="left" />
+                            <img className="arrow-icon-image" src={require('../assets/icons/right_arrow.png')} alt="right" />
                         </div>
                     </div>
 
