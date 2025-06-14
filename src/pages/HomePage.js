@@ -3,12 +3,14 @@ import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
 import SocialMediaSection from '../components/SocialMediaSection.js';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
 
 
 
 function HomePage() {
 
     const imageSliderRef = useRef();
+    const navigate = useNavigate();
     const newCollectionArray = [
         {
             id: 1,
@@ -53,17 +55,24 @@ function HomePage() {
         {
             id: 1,
             name: 'Luios viton aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa asdasdas assssssssssss',
-            img: 'hello'
+            img: 'hello',
+            category: 'backpacks'
+
+
         },
         {
             id: 2,
             name: 'adiadas',
-            img: 'hello'
+            img: 'hello',
+            category: 'backpacks'
+
         },
         {
             id: 3,
             name: 'vans',
-            img: 'hello'
+            img: 'hello',
+            category: 'backpacks'
+
         },
     ];
 
@@ -89,6 +98,10 @@ function HomePage() {
     //     }
 
     // }, []);
+
+    function goToItemDescription(itemId, itemCategory) {
+        navigate(`/category/${itemCategory}/${itemId}`);
+    }
 
     return (
         <>
@@ -126,7 +139,7 @@ function HomePage() {
 
                                 <div className="button-layout button-transparent-background button-white-border">
                                     <div className="button-background-container button-white-background"></div>
-                                    <p className="button-text white-text">see product</p>
+                                    <p onClick={() => { goToItemDescription(item.id, item.category) }} className="button-text white-text">see product</p>
                                 </div>
                             </div>
                             <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />

@@ -6,6 +6,16 @@ function ItemDescriptionPage() {
     const [selectedColour, setSelectedColour] = useState(null);
     const customSelectRef = useRef();
     const itemImageContainerRef = useRef();
+
+    const itemDetails = {
+        id: 1,
+        name: 'Nike sports bag for travelling and schools',
+        avaiable_colours: ['red', 'black', 'green', 'blue'],
+        description: 'this is very good quality waterproof bag with good padding',
+        images: ['hello', 'hello', 'hello']
+    };
+
+
     useEffect(() => {
         window.scrollTo(0, 0);
         console.log(itemImageContainerRef);
@@ -44,7 +54,7 @@ function ItemDescriptionPage() {
 
 
             <div className="section-container">
-                <h1 className="item-description-heading-text black-text">Nike Bag aaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasdasssssssssssssssssssssssssssssssssssss</h1>
+                <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
 
                 <div className="item-row">
                     <div className="item-image-container">
@@ -68,11 +78,16 @@ function ItemDescriptionPage() {
                                 <div className="placeholder-text-container">choose colour</div>
                                 <div className="selected-text-container">{selectedColour}</div>
 
-                                <div className="down-arrow-container"></div>
+                                <div className="down-arrow-container">
+                                    <img className="down-arrow-image" src={require('../assets/icons/down_arrow.png')} alt="down-icon" />
+                                </div>
                             </div>
                             <div className="dropdown-container">
-                                <p onClick={() => { handleSelectColour('red') }} className="dropdown-option-text">red</p>
-                                <p onClick={() => { handleSelectColour('green') }} className="dropdown-option-text">green</p>
+
+                                {itemDetails.avaiable_colours.map((item) => (
+                                    <p key={item} onClick={() => { handleSelectColour(item) }} className="dropdown-option-text">{item}</p>
+                                ))}
+
                             </div>
                         </div>
 
@@ -91,29 +106,7 @@ function ItemDescriptionPage() {
 
                         </div>
 
-                        <p>
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                            this is description
-                        </p>
-
-
-
+                        <p className="black-text">{itemDetails.description}</p>
                     </div>
 
 
