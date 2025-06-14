@@ -34,7 +34,19 @@ function ItemDescriptionPage() {
                 <h1 className="item-description-heading-text black-text">Nike Bag aaaaaaaaaaaaaaaaaaaaaaaaaaaaaasdasdasssssssssssssssssssssssssssssssssssss</h1>
 
                 <div className="item-row">
-                    <div className="item-image-container">1</div>
+                    <div className="item-image-container">
+                        <div className="image-container">
+                            <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
+                            <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
+                            <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
+
+                        </div>
+
+                        <div className="image-navigate-button-container">
+                            <div>left</div>
+                            <div>right</div>
+                        </div>
+                    </div>
 
                     <div className="item-content-container">
 
