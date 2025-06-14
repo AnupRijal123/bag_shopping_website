@@ -5,8 +5,10 @@ function ItemDescriptionPage() {
 
     const [selectedColour, setSelectedColour] = useState(null);
     const customSelectRef = useRef();
+    const itemImageContainerRef = useRef();
     useEffect(() => {
         window.scrollTo(0, 0);
+        console.log(itemImageContainerRef);
     }, []);
 
     function handleSelectColour(value) {
@@ -24,7 +26,18 @@ function ItemDescriptionPage() {
 
     }
 
+    function handleImageNavigation(value) {
+        if (value === 'left') {
+            console.log('left clicked')
+            console.log(itemImageContainerRef.current)
+            itemImageContainerRef.current.scrollBy(-350, 0);
+        }
+        if (value === 'right') {
+            console.log('right clicked');
+            itemImageContainerRef.current.scrollBy(350, 0);
+        }
 
+    }
     return (
         <div className="item-description-container">
             <div className="top-container"></div>
@@ -35,7 +48,7 @@ function ItemDescriptionPage() {
 
                 <div className="item-row">
                     <div className="item-image-container">
-                        <div className="image-container">
+                        <div ref={itemImageContainerRef} className="image-container">
                             <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
                             <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
                             <img className="item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
@@ -43,8 +56,8 @@ function ItemDescriptionPage() {
                         </div>
 
                         <div className="image-navigate-button-container">
-                            <img className="arrow-icon-image" src={require('../assets/icons/left_arrow.png')} alt="left" />
-                            <img className="arrow-icon-image" src={require('../assets/icons/right_arrow.png')} alt="right" />
+                            <img onClick={() => { handleImageNavigation('left') }} className="arrow-icon-image" src={require('../assets/icons/left_arrow.png')} alt="left" />
+                            <img onClick={() => { handleImageNavigation('right') }} className="arrow-icon-image" src={require('../assets/icons/right_arrow.png')} alt="right" />
                         </div>
                     </div>
 
