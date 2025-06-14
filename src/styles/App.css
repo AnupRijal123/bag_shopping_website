@@ -66,7 +66,7 @@ p {
 }
 
 .section-container {
-    background-color: pink;
+    /* background-color: pink; */
     padding: 100px 70px;
 }
 
@@ -129,7 +129,7 @@ p {
 
 
 .button-layout {
-    cursor: pwhite-colorointer;
+    cursor: pointer;
     position: relative;
     width: 105px;
     height: 40px;
@@ -206,6 +206,11 @@ p {
     width: 200px;
     height: 40px;
     position: relative;
+}
+
+
+.disable-select-mouse-hover .dropdown-container {
+    height: 0px !important;
 }
 
 .custom-select-container .selected-container {

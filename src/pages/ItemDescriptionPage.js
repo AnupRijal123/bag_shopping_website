@@ -1,17 +1,26 @@
 import '../styles/ItemDescriptionPage.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function ItemDescriptionPage() {
 
     const [selectedColour, setSelectedColour] = useState(null);
-    const dropdownRef = useRef();
+    const customSelectRef = useRef();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     function handleSelectColour(value) {
         console.log('colour option clicked', value);
         setSelectedColour(value);
 
         //closing dropdown after option is clicked
-        dropdownRef.current.style.height = '0px';
+        console.log(customSelectRef);
+        console.log(customSelectRef.current);
+        customSelectRef.current.classList.add('disable-select-mouse-hover');
+
+        setTimeout(() => {
+            customSelectRef.current.classList.remove('disable-select-mouse-hover');
+        }, 1000);
 
     }
 
@@ -29,14 +38,14 @@ function ItemDescriptionPage() {
 
                     <div className="item-content-container">
 
-                        <div className="custom-select-container">
+                        <div ref={customSelectRef} className="custom-select-container">
                             <div className="selected-container">
                                 <div className="placeholder-text-container">choose colour</div>
                                 <div className="selected-text-container">{selectedColour}</div>
 
                                 <div className="down-arrow-container"></div>
                             </div>
-                            <div ref={dropdownRef} className="dropdown-container">
+                            <div className="dropdown-container">
                                 <p onClick={() => { handleSelectColour('red') }} className="dropdown-option-text">red</p>
                                 <p onClick={() => { handleSelectColour('green') }} className="dropdown-option-text">green</p>
                             </div>
