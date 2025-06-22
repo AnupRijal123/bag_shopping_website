@@ -1,11 +1,13 @@
 import '../styles/ItemDescriptionPage.css';
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 function ItemDescriptionPage() {
 
     const [selectedColour, setSelectedColour] = useState(null);
     const customSelectRef = useRef();
     const itemImageContainerRef = useRef();
+    const navigate = useNavigate();
 
     const itemDetails = {
         id: 1,
@@ -48,6 +50,12 @@ function ItemDescriptionPage() {
         }
 
     }
+
+    function goToConfirmOrderPage() {
+        navigate('/confirm-order');
+    }
+
+
     return (
         <div className="item-description-container">
             <div className="top-container"></div>
@@ -93,7 +101,7 @@ function ItemDescriptionPage() {
 
                         <div className="button-container">
 
-                            <div className="button-layout button-transparent-background button-gray-border">
+                            <div onClick={goToConfirmOrderPage} className="button-layout button-transparent-background button-gray-border">
                                 <div className="button-background-container button-gray-background"></div>
                                 <p className="button-text dark-gray-text">Buy</p>
                             </div>
