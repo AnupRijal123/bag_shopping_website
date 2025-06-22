@@ -292,6 +292,10 @@ p {
     background-color: var(--light-gray-color);
 }
 
+.brand-logo {
+    width: 100px;
+    object-fit: contain;
+}
 
 @media only screen and (max-width:768px) {
     .section-container {

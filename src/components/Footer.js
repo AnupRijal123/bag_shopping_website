@@ -9,7 +9,7 @@ function Footer() {
         <div className="footer">
 
             <div className="footer-first-row">
-                <h1>logo</h1>
+                <img className="brand-logo" src={require('../assets/logos/bb_logo.png')} alt="logo" />
 
                 <div className="footer-column" >
                     <h2 className="white-text">For queries</h2>

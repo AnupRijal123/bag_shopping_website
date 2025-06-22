@@ -40,7 +40,7 @@ function Navbar() {
     return (
         <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'}`}>
             <div className="navbar-first-row">
-                <h1>Arjun Bags</h1>
+                <img className="brand-logo" src={require('../assets/logos/bulbul_logo.png')} alt="logo" />
                 <div className="navbar-first-row-items">
                     <p onClick={goToHome} className="white-text cursor-pointer scale-hover">Home</p>
                     <p className="white-text cursor-pointer scale-hover">Search</p>

@@ -1,9 +1,14 @@
 import '../styles/ConfirmOrderPage.css';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 function ConfirmOrderPage() {
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     function goToItemDescriptionPage() {
         console.log('clicked');
