@@ -34,7 +34,7 @@ function ItemDescriptionPage() {
 
         setTimeout(() => {
             customSelectRef.current.classList.remove('disable-select-mouse-hover');
-        }, 1000);
+        }, 100);
 
     }
 

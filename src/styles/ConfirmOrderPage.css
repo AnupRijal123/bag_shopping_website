@@ -59,9 +59,36 @@
     border-bottom: 2px solid var(--black-color);
 }
 
+.customer-information-input-container {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.customer-input-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-information-input-container .button-layout {
+    width: 125px;
+    margin: auto;
+}
+
+.customer-information-input-container select {
+    width: 185px;
+    cursor: pointer;
+}
+
 @media only screen and (max-width:768px) {
     .order-item {
         width: 100%;
         padding: 10px;
+    }
+
+    .customer-information-input-container {
+        width: 300px;
     }
 }

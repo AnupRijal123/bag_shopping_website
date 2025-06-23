@@ -53,6 +53,14 @@ p {
     color: var(--light-gray-color);
 }
 
+.red-text {
+    color: #ff0000;
+}
+
+.green-text {
+    color: #008000;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
