@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router';
 
 function ItemDescriptionPage() {
 
-    const [selectedColour, setSelectedColour] = useState(null);
-    const customSelectRef = useRef();
     const itemImageContainerRef = useRef();
     const navigate = useNavigate();
+    const [selectedColour, setSelectedColour] = useState('');
 
     const itemDetails = {
         id: 1,
@@ -20,23 +19,8 @@ function ItemDescriptionPage() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        console.log(itemImageContainerRef);
     }, []);
 
-    function handleSelectColour(value) {
-        console.log('colour option clicked', value);
-        setSelectedColour(value);
-
-        //closing dropdown after option is clicked
-        console.log(customSelectRef);
-        console.log(customSelectRef.current);
-        customSelectRef.current.classList.add('disable-select-mouse-hover');
-
-        setTimeout(() => {
-            customSelectRef.current.classList.remove('disable-select-mouse-hover');
-        }, 100);
-
-    }
 
     function handleImageNavigation(value) {
         if (value === 'left') {
@@ -52,7 +36,10 @@ function ItemDescriptionPage() {
     }
 
     function goToConfirmOrderPage() {
-        navigate('/confirm-order');
+        if (selectedColour.length !== 0) {
+            navigate('/confirm-order');
+        }
+
     }
 
 
@@ -63,7 +50,6 @@ function ItemDescriptionPage() {
 
             <div className="section-container">
                 <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
-
                 <div className="item-row">
                     <div className="item-image-container">
                         <div ref={itemImageContainerRef} className="image-container">
@@ -81,23 +67,28 @@ function ItemDescriptionPage() {
 
                     <div className="item-content-container">
 
-                        <div ref={customSelectRef} className="custom-select-container">
-                            <div className="selected-container">
-                                <div className="placeholder-text-container">choose colour</div>
-                                <div className="selected-text-container">{selectedColour}</div>
-
-                                <div className="down-arrow-container">
-                                    <img className="down-arrow-image" src={require('../assets/icons/down_arrow.png')} alt="down-icon" />
-                                </div>
-                            </div>
-                            <div className="dropdown-container">
+                        <div className="select-container">
+                            <select onChange={(event) => {
+                                console.log(event.target.value)
+                                setSelectedColour(event.target.value);
+                            }}>
 
                                 {itemDetails.avaiable_colours.map((item) => (
-                                    <p key={item} onClick={() => { handleSelectColour(item) }} className="dropdown-option-text">{item}</p>
-                                ))}
+                                    <option key={item} value={item}>{item}</option>
 
-                            </div>
+                                ))}
+                            </select>
+
+                            {selectedColour.length === 0 &&
+                                <p className="select-placeholder-text small-text light-gray-text">choose colour</p>
+                            }
+
                         </div>
+
+                        {selectedColour.length === 0 &&
+                            <p className="red-text small-text">please choose a colour</p>
+                        }
+
 
                         <div className="button-container">
 

@@ -50,6 +50,20 @@
     box-sizing: border-box;
 }
 
+.select-container {
+    position: relative;
+}
+
+.select-placeholder-text {
+    background-color: var(--white-color);
+    width: 120px;
+    padding: 5px 0px;
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    pointer-events: none;
+}
+
 @media only screen and (max-width:768px) {
     .item-content-container {
         width: 100%;
