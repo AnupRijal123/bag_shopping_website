@@ -7,6 +7,7 @@ function ItemDescriptionPage() {
     const itemImageContainerRef = useRef();
     const navigate = useNavigate();
     const [selectedColour, setSelectedColour] = useState('');
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
 
     const itemDetails = {
         id: 1,
@@ -21,6 +22,13 @@ function ItemDescriptionPage() {
         window.scrollTo(0, 0);
     }, []);
 
+    useEffect(() => {
+        console.log(selectedColour)
+        if (selectedColour.length !== 0) {
+            setShowErrorMessage(false);
+        }
+
+    }, [selectedColour]);
 
     function handleImageNavigation(value) {
         if (value === 'left') {
@@ -36,7 +44,10 @@ function ItemDescriptionPage() {
     }
 
     function goToConfirmOrderPage() {
-        if (selectedColour.length !== 0) {
+
+        if (selectedColour.length === 0) {
+            setShowErrorMessage(true);
+        } else {
             navigate('/confirm-order');
         }
 
@@ -85,10 +96,10 @@ function ItemDescriptionPage() {
 
                         </div>
 
-                        {selectedColour.length === 0 &&
+
+                        {showErrorMessage === true &&
                             <p className="red-text small-text">please choose a colour</p>
                         }
-
 
                         <div className="button-container">
 
