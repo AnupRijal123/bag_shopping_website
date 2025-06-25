@@ -15,6 +15,27 @@ function ConfirmOrderPage() {
 
     const toPayAmount = totalPrice + deliveryCharge;
 
+    const today = new Date();
+
+    const deliveryStartDate = new Date();
+    deliveryStartDate.setDate(today.getDate() + 2);
+
+    const deliveryEndDate = new Date();
+    deliveryEndDate.setDate(today.getDate() + 4);
+
+    const formattedDeliveryStartDate = deliveryStartDate.toLocaleString("default",
+        {
+            month: "long",
+            day: "numeric"
+        })
+
+    const formattedDeliveryEndDate = deliveryEndDate.toLocaleString("default",
+        {
+            month: "long",
+            day: "numeric"
+        }
+    )
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -30,43 +51,60 @@ function ConfirmOrderPage() {
         navigate(`/category/${itemCategory}/${itemID}`);
     }
 
+    console.log(orderItemsArray);
+    function handleCancelItem(value) {
+        console.log('cancel clicked', value);
+        const filteredOrderItem = orderItemsArray.filter((item, index) => {
+            return index !== value;
+        });
+
+        console.log(filteredOrderItem);
+        setOrderItemsArray(filteredOrderItem);
+        //replacing localstorage order array with this filtered array
+        localStorage.setItem('confirm-item-details', JSON.stringify(filteredOrderItem));
+    }
+
+
     return (
         <div className="confirm-order-container">
             <div className="top-container"></div>
             <div className="section-container">
+                {orderItemsArray.length === 0 ?
+                    (
+                        <p className="light-gray-text center-aligned-text">No items to display here,the items you buy will show here</p>
+                    ) :
+                    (
+                        <div className="order-item-container">
 
-                <div className="order-item-container">
+                            {
+                                orderItemsArray.map((item, index) => (
+                                    <div key={item.id} className="order-item">
 
-                    {orderItemsArray.length !== 0 &&
-                        orderItemsArray.map((item) => (
-                            <div key={item.id} className="order-item">
+                                        <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
+                                            <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
+                                            <h2 className="black-text">{item.name}</h2>
+                                        </div>
 
-                                <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
-                                    <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
-                                    <h2 className="black-text">{item.name}</h2>
-                                </div>
+                                        <div className="order-item-right-container">
+                                            <div>
+                                                <p className="light-gray-text">colour : {item.colour}</p>
+                                                <p className="light-gray-text">price : Rs {item.price}</p>
+                                            </div>
 
-                                <div className="order-item-right-container">
-                                    <div>
-                                        <p className="light-gray-text">colour : {item.colour}</p>
-                                        <p className="light-gray-text">price : Rs {item.price}</p>
+                                            <div onClick={() => { handleCancelItem(index) }} className="button-layout button-transparent-background button-gray-border">
+                                                <div className="button-background-container button-gray-background"></div>
+                                                <p className="button-text dark-gray-text">cancel item</p>
+                                            </div>
+
+                                        </div>
                                     </div>
-
-                                    <div className="button-layout button-transparent-background button-gray-border">
-                                        <div className="button-background-container button-gray-background"></div>
-                                        <p className="button-text dark-gray-text">cancel item</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        ))}
+                                ))}
+                        </div>
+                    )
+                }
 
 
 
-
-
-
-                </div>
 
 
                 <div className="order-description-container">
@@ -89,7 +127,7 @@ function ConfirmOrderPage() {
                         <h2 className="black-text">Rs {toPayAmount}</h2>
                     </div>
 
-                    <p className="black-text small-text ">Estimated delivery : june 21 to june 25</p>
+                    <p className="black-text small-text ">Estimated delivery : {formattedDeliveryStartDate} to {formattedDeliveryEndDate}</p>
                 </div>
 
                 <div className="customer-information-input-container">
@@ -123,8 +161,8 @@ function ConfirmOrderPage() {
                         <p className="button-text dark-gray-text">confirm order</p>
                     </div>
 
-                    <p className="red-text">Failed! Please enter all the details above.</p>
-                    <p className="green-text">Your order has been placed successfully and will be delivered to your address.</p>
+                    <p className="red-text center-aligned-text">Failed! Please enter all the details above.</p>
+                    <p className="green-text center-aligned-text">Your order has been placed successfully and will be delivered to your address.</p>
 
 
                 </div>
