@@ -14,8 +14,14 @@ function ItemDescriptionPage() {
         name: 'Nike sports bag for travelling and schools',
         avaiable_colours: ['red', 'black', 'green', 'blue'],
         description: 'this is very good quality waterproof bag with good padding',
-        images: ['hello', 'hello', 'hello']
+        images: ['hello', 'hello', 'hello'],
+        category: 'backpacks',
+        originalPrice: 1000,
+        discountPercentage: 10,
+        inStockQuantity: 2,
     };
+
+    let actualPrice = itemDetails.originalPrice - (itemDetails.discountPercentage * itemDetails.originalPrice / 100);
 
 
     useEffect(() => {
@@ -44,6 +50,19 @@ function ItemDescriptionPage() {
     }
 
     function goToConfirmOrderPage() {
+
+        let userConfirmedItemDetails = [
+            {
+                id: itemDetails.id,
+                name: itemDetails.name,
+                img: itemDetails.images[0],
+                category: itemDetails.category,
+                price: actualPrice,
+                colour: selectedColour
+            }
+        ]
+
+        localStorage.setItem('confirm-item-details', JSON.stringify(userConfirmedItemDetails));
 
         if (selectedColour.length === 0) {
             setShowErrorMessage(true);
@@ -103,10 +122,23 @@ function ItemDescriptionPage() {
 
                         <div className="button-container">
 
-                            <div onClick={goToConfirmOrderPage} className="button-layout button-transparent-background button-gray-border">
-                                <div className="button-background-container button-gray-background"></div>
-                                <p className="button-text dark-gray-text">Buy</p>
-                            </div>
+
+                            {
+                                itemDetails.inStockQuantity === 0 ?
+                                    (
+                                        <div className="button-layout button-transparent-background button-gray-border">
+                                            <div className="button-background-container button-gray-background"></div>
+                                            <p className="button-text dark-gray-text">Out of stock</p>
+                                        </div>
+                                    ) :
+                                    (
+                                        <div onClick={goToConfirmOrderPage} className="button-layout button-transparent-background button-gray-border">
+                                            <div className="button-background-container button-gray-background"></div>
+                                            <p className="button-text dark-gray-text">Buy</p>
+                                        </div>
+                                    )
+                            }
+
 
                             <div className="button-layout button-transparent-background button-gray-border">
                                 <div className="button-background-container button-gray-background"></div>

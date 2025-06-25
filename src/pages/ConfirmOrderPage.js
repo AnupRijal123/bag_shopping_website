@@ -1,36 +1,11 @@
 import '../styles/ConfirmOrderPage.css';
 import { useNavigate } from 'react-router';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function ConfirmOrderPage() {
 
     const navigate = useNavigate();
-    const orderItemsArray = [
-        {
-            id: 1,
-            name: 'Addidas',
-            colour: 'orange',
-            img: 'hello',
-            price: 1600
-
-        },
-        {
-            id: 2,
-            name: 'Nike',
-            colour: 'pink',
-            img: 'hello',
-            price: 1200
-
-        },
-        {
-            id: 3,
-            name: 'Addidas',
-            colour: 'green',
-            img: 'hello',
-            price: 1500
-
-        }
-    ];
+    const [orderItemsArray, setOrderItemsArray] = useState([]);
 
     const totalPrice = orderItemsArray.reduce((total, item) => {
         return total + item.price;
@@ -43,11 +18,16 @@ function ConfirmOrderPage() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+
+        console.log(JSON.parse(localStorage.getItem('confirm-item-details')));
+        setOrderItemsArray(JSON.parse(localStorage.getItem('confirm-item-details')));
+
     }, []);
 
-    function goToItemDescriptionPage() {
+    function goToItemDescriptionPage(itemID, itemCategory) {
         console.log('clicked');
-        navigate('/category/backpacks/1');
+        navigate(`/category/${itemCategory}/${itemID}`);
     }
 
     return (
@@ -61,7 +41,7 @@ function ConfirmOrderPage() {
                         orderItemsArray.map((item) => (
                             <div key={item.id} className="order-item">
 
-                                <div onClick={goToItemDescriptionPage} className="order-item-left-container cursor-pointer">
+                                <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
                                     <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
                                     <h2 className="black-text">{item.name}</h2>
                                 </div>
