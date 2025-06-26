@@ -96,24 +96,25 @@ function ItemDescriptionPage() {
                     </div>
 
                     <div className="item-content-container">
+                        <div className="price-container">
+                            {itemDetails.discountPercentage !== null &&
+                                <h1 className="strike-text light-gray-text">Rs {itemDetails.originalPrice}</h1>
 
-                        <div className="select-container">
-                            <select onChange={(event) => {
-                                console.log(event.target.value)
-                                setSelectedColour(event.target.value);
-                            }}>
-
-                                {itemDetails.avaiable_colours.map((item) => (
-                                    <option key={item} value={item}>{item}</option>
-
-                                ))}
-                            </select>
-
-                            {selectedColour.length === 0 &&
-                                <p className="select-placeholder-text small-text light-gray-text">choose colour</p>
                             }
-
+                            <h1 className="black-text">Rs {itemDetails.originalPrice - (itemDetails.discountPercentage * itemDetails.originalPrice / 100)}</h1>
                         </div>
+
+
+                        <select value={selectedColour} onChange={(event) => {
+                            console.log(event.target.value)
+                            setSelectedColour(event.target.value);
+                        }}>
+                            <option value="" disabled>choose colour</option>
+                            {itemDetails.avaiable_colours.map((item) => (
+                                <option key={item} value={item}>{item}</option>
+
+                            ))}
+                        </select>
 
 
                         {showErrorMessage === true &&
