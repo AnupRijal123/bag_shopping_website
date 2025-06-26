@@ -33,9 +33,9 @@ function App() {
       </BrowserRouter>
 
 
-
-
       <Footer />
+
+
 
 
 

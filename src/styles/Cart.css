@@ -1,0 +1,48 @@
+.cart {
+    background-color: red;
+    position: fixed;
+    z-index: 11;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    transition: width 0.5s ease;
+
+}
+
+.show-cart {
+    background-color: green;
+    width: 300px;
+}
+
+.close-cart {
+    background-color: purple;
+    width: 0px;
+}
+
+.cart-header {
+    background-color: pink;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.cart-close-button {
+    background-color: #ff0000;
+    height: fit-content;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.cart-item-container {
+    background-color: yellow;
+    height: 80vh;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.cart .button-layout {
+    margin: auto;
+}
