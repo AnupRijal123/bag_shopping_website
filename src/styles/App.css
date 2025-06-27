@@ -229,6 +229,43 @@ select {
 
 }
 
+.order-item-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--dark-gray-color);
+    border-radius: 10px;
+}
+
+
+
+.order-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.order-item-left-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-item-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 
 
 @media only screen and (max-width:768px) {
