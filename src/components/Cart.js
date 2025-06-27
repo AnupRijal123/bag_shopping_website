@@ -1,28 +1,24 @@
 import '../styles/Cart.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 function Cart(props) {
     // console.log(props);
     const navigate = useNavigate();
-    const [cartItemsArray, setCartItemsArray] = useState([
-        {
-            id: 1,
-            name: 'testname',
-            colour: 'tesecolour',
-            img: 'hello',
-            category: 'backpacks',
-            price: 100
-        },
-        {
-            id: 2,
-            name: 'testname',
-            colour: 'tesecolour',
-            img: 'hello',
-            category: 'backpacks',
-            price: 200
-        }
-    ]);
+    const [cartItemsArray, setCartItemsArray] = useState([]);
+    useEffect(() => {
+        //get cart items array from localStorage and store it in array
+
+        setInterval(() => {
+            //continuously checking local storage for cart-items change
+            const exitingCartItems = JSON.parse(localStorage.getItem('cart-items'));
+            if (exitingCartItems !== null) {
+                setCartItemsArray(exitingCartItems);
+            } else {
+                setCartItemsArray([]);
+            }
+        }, 100);
+    }, []);
 
     function goToItemDescriptionPage(itemID, itemCategory) {
         console.log('clicked');
@@ -30,7 +26,6 @@ function Cart(props) {
         navigate(`/category/${itemCategory}/${itemID}`);
     }
 
-    console.log(cartItemsArray);
 
     function handleCancelItem(value) {
         console.log('cancel clicked', value);
@@ -41,19 +36,49 @@ function Cart(props) {
         });
 
         console.log(filteredCartItemsArray);
-        setCartItemsArray(filteredCartItemsArray);
+        localStorage.setItem('cart-items', JSON.stringify(filteredCartItemsArray));
     }
+
+
+    function handleCheckout() {
+
+        //get confirm-order array from localStorage and add cart item that array and set final array to localStorage
+
+        const confirmOrderArray = JSON.parse(localStorage.getItem('confirm-item-details'));
+        console.log(confirmOrderArray);
+
+        if (confirmOrderArray === null) {
+            localStorage.setItem('confirm-item-details', JSON.stringify(cartItemsArray))
+
+        } else {
+            const newConfirmOrderArray = [...cartItemsArray, ...confirmOrderArray];
+            localStorage.setItem('confirm-item-details', JSON.stringify(newConfirmOrderArray));
+        }
+
+        //clearing cart array from localStorage
+
+        localStorage.removeItem('cart-items');
+
+    }
+
+
     return (
         <div className={`cart ${props.cartClicked === true ? 'show-cart' : 'close-cart'} `}>
 
             <div className="cart-header">
                 <h1 className="white-text">Cart</h1>
-                <div onClick={props.closeCart} className="cart-close-button">
-                    <p className="white-text">close</p>
-                </div>
+                <p onClick={props.closeCart} className="red-text cursor-pointer scale-hover">close</p>
+
+
             </div>
 
             <div className="cart-item-container">
+
+                {cartItemsArray.length === 0 &&
+                    <p className="light-gray-text">Add items to cart to display here</p>
+
+                }
+
                 <div className="order-item-container">
 
                     {
@@ -80,9 +105,10 @@ function Cart(props) {
                             </div>
                         ))}
                 </div>
+
             </div>
 
-            <div className="button-layout button-transparent-background button-gray-border">
+            <div onClick={handleCheckout} className="button-layout button-transparent-background button-gray-border">
                 <div className="button-background-container button-gray-background"></div>
                 <p className="button-text dark-gray-text">checkout</p>
             </div>

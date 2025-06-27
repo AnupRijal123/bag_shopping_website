@@ -57,7 +57,6 @@ function Navbar() {
                     <img className="brand-logo" src={require('../assets/logos/bulbul_logo.png')} alt="logo" />
                     <div className="navbar-first-row-items">
                         <p onClick={goToHome} className="white-text cursor-pointer scale-hover">Home</p>
-                        <p className="white-text cursor-pointer scale-hover">Search</p>
                         <p onClick={handleCartClick} className="white-text cursor-pointer scale-hover">Cart</p>
                     </div>
                 </div>

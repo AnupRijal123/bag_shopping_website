@@ -40,9 +40,15 @@ function ConfirmOrderPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
 
+        setInterval(() => {
+            const existingOrderItemsArray = JSON.parse(localStorage.getItem('confirm-item-details'));
 
-        console.log(JSON.parse(localStorage.getItem('confirm-item-details')));
-        setOrderItemsArray(JSON.parse(localStorage.getItem('confirm-item-details')));
+            if (existingOrderItemsArray !== null) {
+                setOrderItemsArray(existingOrderItemsArray);
+            } else {
+                setOrderItemsArray([]);
+            }
+        }, 100);
 
     }, []);
 

@@ -5,7 +5,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 
 }
 
@@ -29,7 +29,6 @@
 
 
 .cart-close-button {
-    background-color: #ff0000;
     height: fit-content;
     padding: 2px;
     cursor: pointer;
@@ -59,7 +58,6 @@
 
 @media only screen and (max-height:500px) {
     .cart-item-container {
-        background-color: orange;
         height: 70vh;
     }
 }

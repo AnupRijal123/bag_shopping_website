@@ -8,6 +8,7 @@ function ItemDescriptionPage() {
     const navigate = useNavigate();
     const [selectedColour, setSelectedColour] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
 
     const itemDetails = {
         id: 1,
@@ -23,6 +24,16 @@ function ItemDescriptionPage() {
 
     let actualPrice = itemDetails.originalPrice - (itemDetails.discountPercentage * itemDetails.originalPrice / 100);
 
+    let userConfirmedItemDetails = [
+        {
+            id: itemDetails.id,
+            name: itemDetails.name,
+            img: itemDetails.images[0],
+            category: itemDetails.category,
+            price: actualPrice,
+            colour: selectedColour
+        }
+    ]
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -51,16 +62,7 @@ function ItemDescriptionPage() {
 
     function goToConfirmOrderPage() {
 
-        let userConfirmedItemDetails = [
-            {
-                id: itemDetails.id,
-                name: itemDetails.name,
-                img: itemDetails.images[0],
-                category: itemDetails.category,
-                price: actualPrice,
-                colour: selectedColour
-            }
-        ]
+
 
         localStorage.setItem('confirm-item-details', JSON.stringify(userConfirmedItemDetails));
 
@@ -72,6 +74,36 @@ function ItemDescriptionPage() {
 
     }
 
+    function handleAddToCart() {
+
+        if (selectedColour.length === 0) {
+            setShowErrorMessage(true);
+        } else {
+            setShowAddedToCartMessage(true);
+
+            setTimeout(() => {
+                setShowAddedToCartMessage(false);
+            }, 1000);
+
+            const cartItems = localStorage.getItem('cart-items');
+
+            if (cartItems === null) {
+                //add new cart array to localStorage
+                localStorage.setItem('cart-items', JSON.stringify(userConfirmedItemDetails));
+            } else {
+                //get cart array from localStorage and add new item to array and add final array to localStorage
+                const exisitingCartItems = JSON.parse(localStorage.getItem('cart-items'));
+                console.log(exisitingCartItems);
+                exisitingCartItems.push(userConfirmedItemDetails[0]);
+                console.log(exisitingCartItems);
+
+                //adding this new array to localStorage
+                localStorage.setItem('cart-items', JSON.stringify(exisitingCartItems));
+
+            }
+        }
+
+    }
 
     return (
         <div className="item-description-container">
@@ -141,10 +173,21 @@ function ItemDescriptionPage() {
                             }
 
 
-                            <div className="button-layout button-transparent-background button-gray-border">
+                            <div onClick={handleAddToCart} className="button-layout button-transparent-background button-gray-border">
                                 <div className="button-background-container button-gray-background"></div>
                                 <p className="button-text dark-gray-text">Add to cart</p>
                             </div>
+
+
+                            {showAddedToCartMessage === true &&
+                                <div className="added-to-card-message-container">
+                                    <p className="green-text">Added to Cart</p>
+                                    <img className="green-check-image" src={require('../assets/logos/green_check.png')} alt="check-mark" />
+                                </div>
+                            }
+
+
+
 
 
                         </div>

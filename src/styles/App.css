@@ -203,7 +203,6 @@ p {
     padding: 20px 0px;
     display: flex;
     gap: 20px;
-
 }
 
 .arrow-icon-image {
@@ -265,7 +264,10 @@ select {
     justify-content: space-between;
 }
 
-
+.green-check-image {
+    width: 30px;
+    height: 30px;
+}
 
 
 @media only screen and (max-width:768px) {
