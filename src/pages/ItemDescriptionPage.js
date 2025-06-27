@@ -40,7 +40,6 @@ function ItemDescriptionPage() {
     }, []);
 
     useEffect(() => {
-        console.log(selectedColour)
         if (selectedColour.length !== 0) {
             setShowErrorMessage(false);
         }
@@ -49,12 +48,9 @@ function ItemDescriptionPage() {
 
     function handleImageNavigation(value) {
         if (value === 'left') {
-            console.log('left clicked')
-            console.log(itemImageContainerRef.current)
             itemImageContainerRef.current.scrollBy(-350, 0);
         }
         if (value === 'right') {
-            console.log('right clicked');
             itemImageContainerRef.current.scrollBy(350, 0);
         }
 
@@ -93,9 +89,7 @@ function ItemDescriptionPage() {
             } else {
                 //get cart array from localStorage and add new item to array and add final array to localStorage
                 const exisitingCartItems = JSON.parse(localStorage.getItem('cart-items'));
-                console.log(exisitingCartItems);
                 exisitingCartItems.push(userConfirmedItemDetails[0]);
-                console.log(exisitingCartItems);
 
                 //adding this new array to localStorage
                 localStorage.setItem('cart-items', JSON.stringify(exisitingCartItems));
@@ -138,7 +132,6 @@ function ItemDescriptionPage() {
 
 
                         <select value={selectedColour} onChange={(event) => {
-                            console.log(event.target.value)
                             setSelectedColour(event.target.value);
                         }}>
                             <option value="" disabled>choose colour</option>

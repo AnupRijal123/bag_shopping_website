@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 function CategoryListingPage() {
     const urlCategory = useParams();
-    console.log(urlCategory);
 
     const categoryArray = [
         {

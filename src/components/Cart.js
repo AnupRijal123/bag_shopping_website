@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 function Cart(props) {
-    // console.log(props);
     const navigate = useNavigate();
     const [cartItemsArray, setCartItemsArray] = useState([]);
     useEffect(() => {
@@ -21,31 +20,29 @@ function Cart(props) {
     }, []);
 
     function goToItemDescriptionPage(itemID, itemCategory) {
-        console.log('clicked');
         props.closeCart();
         navigate(`/category/${itemCategory}/${itemID}`);
     }
 
 
     function handleCancelItem(value) {
-        console.log('cancel clicked', value);
         const filteredCartItemsArray = cartItemsArray.filter((item) => {
 
             return item !== cartItemsArray[value];
 
         });
 
-        console.log(filteredCartItemsArray);
         localStorage.setItem('cart-items', JSON.stringify(filteredCartItemsArray));
     }
 
 
     function handleCheckout() {
 
+        navigate('/confirm-order');
+
         //get confirm-order array from localStorage and add cart item that array and set final array to localStorage
 
         const confirmOrderArray = JSON.parse(localStorage.getItem('confirm-item-details'));
-        console.log(confirmOrderArray);
 
         if (confirmOrderArray === null) {
             localStorage.setItem('confirm-item-details', JSON.stringify(cartItemsArray))
@@ -83,7 +80,7 @@ function Cart(props) {
 
                     {
                         cartItemsArray.map((item, index) => (
-                            <div key={item.id} className="order-item">
+                            <div key={index} className="order-item">
 
                                 <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
                                     <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />

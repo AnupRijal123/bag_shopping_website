@@ -5,6 +5,15 @@ import { useState, useEffect } from 'react';
 function ConfirmOrderPage() {
 
     const navigate = useNavigate();
+
+    const [fullName, setFullName] = useState('');
+    const [contactNumber, setContactNumber] = useState('');
+    const [deliveryAddress, setDeliveryAddress] = useState('');
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+
+
     const [orderItemsArray, setOrderItemsArray] = useState([]);
 
     const totalPrice = orderItemsArray.reduce((total, item) => {
@@ -52,22 +61,34 @@ function ConfirmOrderPage() {
 
     }, []);
 
+    useEffect(() => {
+
+        if (fullName.length !== 0 && contactNumber.length !== 0 && deliveryAddress.length !== 0) {
+            setShowErrorMessage(false);
+        }
+
+    }, [fullName, contactNumber, deliveryAddress]);
+
     function goToItemDescriptionPage(itemID, itemCategory) {
-        console.log('clicked');
         navigate(`/category/${itemCategory}/${itemID}`);
     }
 
-    console.log(orderItemsArray);
     function handleCancelItem(value) {
-        console.log('cancel clicked', value);
         const filteredOrderItem = orderItemsArray.filter((item, index) => {
             return index !== value;
         });
-
-        console.log(filteredOrderItem);
-        setOrderItemsArray(filteredOrderItem);
         //replacing localstorage order array with this filtered array
         localStorage.setItem('confirm-item-details', JSON.stringify(filteredOrderItem));
+    }
+
+    function handleConfirmOrder() {
+        console.log('confirmed clicked');
+        //if any of form field is empty showing error message
+        if (fullName.length === 0 || contactNumber.length === 0 || deliveryAddress.length === 0) {
+            setShowErrorMessage(true);
+        } else {
+            setShowSuccessMessage(true);
+        }
     }
 
 
@@ -84,7 +105,7 @@ function ConfirmOrderPage() {
 
                             {
                                 orderItemsArray.map((item, index) => (
-                                    <div key={item.id} className="order-item">
+                                    <div key={index} className="order-item">
 
                                         <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
                                             <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
@@ -138,19 +159,39 @@ function ConfirmOrderPage() {
 
                 <div className="customer-information-input-container">
                     <h1 className="black-text">For delivery, Please enter your following details</h1>
+
                     <div className="customer-input-row">
                         <p className="black-text">Full Name</p>
-                        <input type="text" />
+                        <input type="text"
+                            value={fullName}
+                            placeholder="enter full name"
+                            onChange={(event) => {
+                                setFullName(event.target.value);
+                            }}
+                        />
                     </div>
 
                     <div className="customer-input-row">
                         <p className="black-text">Contact No.</p>
-                        <input type="tel" />
+                        <input
+                            type="tel"
+                            value={contactNumber}
+                            placeholder="enter contact number"
+                            onChange={(event) => {
+                                setContactNumber(event.target.value)
+                            }}
+                        />
                     </div>
 
                     <div className="customer-input-row">
                         <p className="black-text">Delivery Address</p>
-                        <input type="address" />
+                        <textarea
+                            value={deliveryAddress}
+                            placeholder="type address or paste google map link "
+                            onChange={(event) => {
+                                setDeliveryAddress(event.target.value);
+                            }}
+                        ></textarea>
                     </div>
 
                     <div className="customer-input-row">
@@ -162,13 +203,20 @@ function ConfirmOrderPage() {
                     </div>
 
 
-                    <div className="button-layout button-transparent-background button-gray-border">
+                    <div onClick={handleConfirmOrder} className="button-layout button-transparent-background button-gray-border">
                         <div className="button-background-container button-gray-background"></div>
                         <p className="button-text dark-gray-text">confirm order</p>
                     </div>
 
-                    <p className="red-text center-aligned-text">Failed! Please enter all the details above.</p>
-                    <p className="green-text center-aligned-text">Your order has been placed successfully and will be delivered to your address.</p>
+
+                    {showErrorMessage === true &&
+                        <p className="red-text center-aligned-text">Failed! Please enter all the details above.</p>
+                    }
+
+
+                    {showSuccessMessage === true &&
+                        <p className="green-text center-aligned-text">Your order has been placed successfully and will be delivered to your address.</p>
+                    }
 
 
                 </div>

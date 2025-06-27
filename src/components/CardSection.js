@@ -4,12 +4,9 @@ import { useNavigate } from 'react-router';
 function CardSection(props) {
 
     const navigate = useNavigate();
-    console.log(props);
-    console.log(props.cardItemsArray);
+
 
     function goToItemDescription(itemId, itemCategory) {
-        console.log('card clicked');
-        console.log(itemId);
         navigate(`/category/${itemCategory}/${itemId}`);
     }
 

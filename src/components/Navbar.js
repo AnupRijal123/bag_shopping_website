@@ -41,7 +41,6 @@ function Navbar() {
     }
 
     function handleCartClick() {
-        console.log('cart clicked');
         setIsCartClicked(true);
     }
 
