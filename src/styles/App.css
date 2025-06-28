@@ -1,21 +1,288 @@
+:root {
+    --white-color: #ffffff;
+    --black-color: #111;
+    --dark-gray-color: #3a3b3c;
+    --light-gray-color: #808080;
+
+}
+
 h1,
 h2,
 p {
     margin: 0;
     letter-spacing: 1px;
+    word-wrap: break-word;
 }
 
 h1 {
     color: blue;
     font-size: 32px;
+    font-weight: 600;
 }
 
 h2 {
-    color: orange;
+    color: green;
     font-size: 18px;
+    font-weight: 400;
 }
 
 p {
     color: red;
     font-size: 16px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+.white-text {
+    color: var(--white-color);
+}
+
+.black-text {
+    color: var(--black-color);
+}
+
+.dark-gray-text {
+    color: var(--dark-gray-color);
+}
+
+.light-gray-text {
+    color: var(--light-gray-color);
+}
+
+.red-text {
+    color: #ff0000;
+}
+
+.green-text {
+    color: #008000;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.scale-hover {
+    transition: transform 0.5s ease;
+}
+
+.scale-hover:hover {
+    transform: scale(1.2);
+}
+
+.section-container {
+    padding: 100px 70px;
+}
+
+.strike-text {
+    text-decoration: line-through;
+}
+
+.link-text {
+    transition: color 0.3s ease;
+}
+
+.link-text:hover {
+    color: #808080;
+}
+
+.center-aligned-text {
+    text-align: center;
+}
+
+.section-heading-text {
+    padding-bottom: 30px;
+}
+
+.coloured-background-section {
+    background-color: var(--dark-gray-color) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0px 30px 0px;
+
+}
+
+.coloured-background-section-image-container {
+    overflow: hidden;
+    width: 50%;
+    height: 400px;
+}
+
+.coloured-background-section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s ease;
+}
+
+.coloured-background-section-image:hover {
+    transform: scale(1.5);
+}
+
+.coloured-background-content {
+    width: 40%;
+    padding: 20px;
+    height: fit-content;
+}
+
+
+
+.button-layout {
+    cursor: pointer;
+    position: relative;
+    width: 105px;
+    height: 40px;
+}
+
+.button-transparent-background {
+    background: transparent;
+}
+
+.button-white-border {
+    border: 1px solid var(--white-color);
+}
+
+.button-gray-border {
+    border: 1px solid var(--dark-gray-color);
+}
+
+
+
+.button-background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    transition: height 0.3s ease;
+}
+
+.button-white-background {
+    background-color: var(--white-color);
+}
+
+.button-gray-background {
+    background-color: var(--dark-gray-color);
+}
+
+.button-text {
+    position: absolute;
+    z-index: 1;
+    top: 13px;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+
+}
+
+.button-layout:hover .button-background-container {
+    height: 100%;
+}
+
+.button-layout:hover .white-text {
+    color: var(--dark-gray-color);
+}
+
+.button-layout:hover .dark-gray-text {
+    color: var(--white-color);
+}
+
+.top-container {
+    background-color: var(--dark-gray-color);
+    height: 195px;
+    width: 100%;
+}
+
+.button-container {
+    padding: 20px 0px;
+    display: flex;
+    gap: 20px;
+}
+
+.arrow-icon-image {
+    width: 20px;
+    padding: 5px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.arrow-icon-image:hover {
+    background-color: var(--light-gray-color);
+}
+
+.brand-logo {
+    width: 100px;
+    object-fit: contain;
+}
+
+select {
+    width: 185px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.order-item-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--dark-gray-color);
+    border-radius: 10px;
+}
+
+
+
+.order-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.order-item-left-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-item-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.green-check-image {
+    width: 30px;
+    height: 30px;
+}
+
+
+@media only screen and (max-width:768px) {
+    .section-container {
+        padding: 30px 20px;
+    }
+
+    .coloured-background-section-image-container {
+        width: 100%;
+    }
+
+
+
+    .coloured-background-content {
+        margin: auto;
+        width: 80%;
+    }
 }

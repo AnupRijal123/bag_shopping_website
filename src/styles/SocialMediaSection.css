@@ -1,0 +1,17 @@
+.social-media-icon-container {
+    padding: 10px 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-media-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.social-media-icon:hover {
+    transform: scale(1.2);
+}
