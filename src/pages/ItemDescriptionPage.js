@@ -19,7 +19,7 @@ function ItemDescriptionPage() {
         category: 'backpacks',
         originalPrice: 1000,
         discountPercentage: 10,
-        inStockQuantity: 2,
+        inStockQuantity: 0
     };
 
     let actualPrice = itemDetails.originalPrice - (itemDetails.discountPercentage * itemDetails.originalPrice / 100);
@@ -131,59 +131,61 @@ function ItemDescriptionPage() {
                         </div>
 
 
-                        <select value={selectedColour} onChange={(event) => {
-                            setSelectedColour(event.target.value);
-                        }}>
-                            <option value="" disabled>choose colour</option>
-                            {itemDetails.avaiable_colours.map((item) => (
-                                <option key={item} value={item}>{item}</option>
-
-                            ))}
-                        </select>
 
 
-                        {showErrorMessage === true &&
-                            <p className="red-text small-text">please choose a colour</p>
+                        {
+                            itemDetails.inStockQuantity === 0 ?
+                                (
+                                    <p className="dark-gray-text out-of-stock-text">Out of stock</p>
+
+                                ) :
+                                (
+
+                                    <>
+                                        <select value={selectedColour} onChange={(event) => {
+                                            setSelectedColour(event.target.value);
+                                        }}>
+                                            <option value="" disabled>choose colour</option>
+                                            {itemDetails.avaiable_colours.map((item) => (
+                                                <option key={item} value={item}>{item}</option>
+
+                                            ))}
+                                        </select>
+
+
+                                        {showErrorMessage === true &&
+                                            <p className="red-text small-text">please choose a colour</p>
+                                        }
+
+                                        <div className="button-container">
+
+                                            <div onClick={goToConfirmOrderPage} className="button-layout button-transparent-background button-gray-border">
+                                                <div className="button-background-container button-gray-background"></div>
+                                                <p className="button-text dark-gray-text">Buy</p>
+                                            </div>
+
+                                            <div onClick={handleAddToCart} className="button-layout button-transparent-background button-gray-border">
+                                                <div className="button-background-container button-gray-background"></div>
+                                                <p className="button-text dark-gray-text">Add to cart</p>
+                                            </div>
+
+
+                                            {showAddedToCartMessage === true &&
+                                                <div className="added-to-card-message-container">
+                                                    <p className="green-text">Added to Cart</p>
+                                                    <img className="green-check-image" src={require('../assets/logos/green_check.png')} alt="check-mark" />
+                                                </div>
+                                            }
+
+                                        </div>
+                                    </>
+
+                                )
                         }
 
-                        <div className="button-container">
-
-
-                            {
-                                itemDetails.inStockQuantity === 0 ?
-                                    (
-                                        <div className="button-layout button-transparent-background button-gray-border">
-                                            <div className="button-background-container button-gray-background"></div>
-                                            <p className="button-text dark-gray-text">Out of stock</p>
-                                        </div>
-                                    ) :
-                                    (
-                                        <div onClick={goToConfirmOrderPage} className="button-layout button-transparent-background button-gray-border">
-                                            <div className="button-background-container button-gray-background"></div>
-                                            <p className="button-text dark-gray-text">Buy</p>
-                                        </div>
-                                    )
-                            }
-
-
-                            <div onClick={handleAddToCart} className="button-layout button-transparent-background button-gray-border">
-                                <div className="button-background-container button-gray-background"></div>
-                                <p className="button-text dark-gray-text">Add to cart</p>
-                            </div>
-
-
-                            {showAddedToCartMessage === true &&
-                                <div className="added-to-card-message-container">
-                                    <p className="green-text">Added to Cart</p>
-                                    <img className="green-check-image" src={require('../assets/logos/green_check.png')} alt="check-mark" />
-                                </div>
-                            }
 
 
 
-
-
-                        </div>
 
                         <p className="black-text">{itemDetails.description}</p>
                     </div>

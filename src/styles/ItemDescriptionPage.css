@@ -56,6 +56,10 @@
     padding: 10px 0px;
 }
 
+.out-of-stock-text {
+    padding: 20px 0px;
+}
+
 .added-to-card-message-container {
     display: flex;
     align-items: center;

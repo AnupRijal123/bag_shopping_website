@@ -55,6 +55,7 @@ function Cart(props) {
         //clearing cart array from localStorage
 
         localStorage.removeItem('cart-items');
+        props.closeCart();
 
     }
 
