@@ -43,8 +43,9 @@ function Banner() {
 
             <div className="fade-container"></div>
             <div className="banner-content">
-                <p className="white-text">Get all types of bags</p>
-                <h2 className="white-text">From us</h2>
+                <p className="white-text">Get all types of bags,</p>
+                <p className="white-text">Or order your own bag design</p>
+                <h2 className="white-text">With us</h2>
 
                 <div onClick={handleScrollDown} className="button-layout button-transparent-background button-white-border">
                     <div className="button-background-container button-white-background">

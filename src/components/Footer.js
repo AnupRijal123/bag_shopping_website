@@ -27,11 +27,17 @@ function Footer() {
 
                     <div>
                         <p className="white-text">social media</p>
-
-
                         <SocialMediaSection />
                     </div>
 
+                    <div>
+                        <p className="white-text">whatsapp</p>
+                        <div className="whatsapp-image-container">
+                            <img className="whatsapp-image" src={require('../assets/logos/whatsapplogo.png')} alt="whatsapp-logo" />
+                            <p className="white-text">9851161443</p>
+                        </div>
+
+                    </div>
 
                     <div>
                         <p className="white-text">contact</p>

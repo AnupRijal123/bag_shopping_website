@@ -22,6 +22,18 @@
     gap: 10px;
 }
 
+.whatsapp-image-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-image {
+    width: 30px;
+    height: 30px;
+}
+
+
 /* mobile phones */
 @media only screen and (max-width:520px) {
     .footer-first-row {

@@ -64,23 +64,22 @@ function Navbar() {
 
 
 
-                        <p onClick={() => { goToCategoryPage('backpacks') }} className="white-text cursor-pointer scale-hover">backpacks</p>
-                        <p onClick={() => { goToCategoryPage('handbags') }} className="white-text cursor-pointer scale-hover">handbags</p>
-                        <p onClick={() => { goToCategoryPage('ladies bags') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
+                        <p onClick={() => { goToCategoryPage('backpack') }} className="white-text cursor-pointer scale-hover">backpacks</p>
+                        <p onClick={() => { goToCategoryPage('handbag') }} className="white-text cursor-pointer scale-hover">handbags</p>
+                        <p onClick={() => { goToCategoryPage('ladies') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
 
                         <div className="navbar-item-dropdown-container">
                             <p className="white-text cursor-pointer scale-hover">others</p>
                             <div className="navbar-item-dropdown">
-                                <p onClick={() => { goToCategoryPage('school bags') }} className="white-text scale-hover cursor-pointer">school bags</p>
-                                <p onClick={() => { goToCategoryPage('college bags') }} className="white-text scale-hover cursor-pointer">college bags</p>
-                                <p onClick={() => { goToCategoryPage('office bags') }} className="white-text scale-hover cursor-pointer">office bags</p>
-                                <p onClick={() => { goToCategoryPage('shopping bags') }} className="white-text scale-hover cursor-pointer">shopping bags</p>
-                                <p onClick={() => { goToCategoryPage('guitar bags') }} className="white-text scale-hover cursor-pointer">guitar bags</p>
-                                <p onClick={() => { goToCategoryPage('gym bags') }} className="white-text scale-hover cursor-pointer">gym bags</p>
-                                <p onClick={() => { goToCategoryPage('delivery bags') }} className="white-text scale-hover cursor-pointer">delivery bags</p>
+                                <p onClick={() => { goToCategoryPage('school') }} className="white-text scale-hover cursor-pointer">school bags</p>
+                                <p onClick={() => { goToCategoryPage('college') }} className="white-text scale-hover cursor-pointer">college bags</p>
+                                <p onClick={() => { goToCategoryPage('office') }} className="white-text scale-hover cursor-pointer">office bags</p>
+                                <p onClick={() => { goToCategoryPage('shopping') }} className="white-text scale-hover cursor-pointer">shopping bags</p>
+                                <p onClick={() => { goToCategoryPage('guitar') }} className="white-text scale-hover cursor-pointer">guitar bags</p>
+                                <p onClick={() => { goToCategoryPage('gym') }} className="white-text scale-hover cursor-pointer">gym bags</p>
+                                <p onClick={() => { goToCategoryPage('delivery') }} className="white-text scale-hover cursor-pointer">delivery bags</p>
                             </div>
                         </div>
-                        <p onClick={() => { goToCategoryPage('sale') }} className="white-text cursor-pointer scale-hover">sale</p>
                     </div>
                 </div>
             </div>

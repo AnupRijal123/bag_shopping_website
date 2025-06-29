@@ -11,10 +11,6 @@ function SocialMediaSection() {
                 <img className="social-media-icon" src={require('../assets/logos/instagramlogo.jpg')} alt="insta-logo" />
             </a>
 
-            <a href="https://www.whatsapp.com/">
-                <img className="social-media-icon" src={require('../assets/logos/whatsapplogo.png')} alt="whataspp-logo" />
-            </a>
-
         </div>
     )
 }

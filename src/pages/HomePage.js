@@ -14,27 +14,11 @@ function HomePage() {
 
     const [sliderImageArray, setSliderImageArray] = useState([]);
 
-    // useEffect(() => {
-
-    //     //image slider scrolling 
-    //     const slideInterval = setInterval(() => {
+    useEffect(() => {
 
 
-    //         if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
-    //             imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
-    //         } else {
-    //             //scroll to beginning
-    //             imageSliderRef.current.scrollTo(0, 0);
-    //         }
 
-
-    //     }, 3000);
-
-    //     return () => {
-    //         clearInterval(slideInterval);
-    //     }
-
-    // }, []);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -56,7 +40,7 @@ function HomePage() {
 
         async function getNewCollectionArray() {
             const { data, error } = await supabase.from("bags")
-                .select("*");
+                .select("id,name,img,category,original_price,discount_percentage,in_stock_quantity");
 
             if (data) {
                 console.log(data)
@@ -69,6 +53,24 @@ function HomePage() {
 
         getSliderImageArray();
         getNewCollectionArray();
+
+        //image slider scrolling 
+        const slideInterval = setInterval(() => {
+
+
+            if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
+                imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
+            } else {
+                //scroll to beginning
+                imageSliderRef.current.scrollTo(0, 0);
+            }
+
+
+        }, 3000);
+
+        return () => {
+            clearInterval(slideInterval);
+        }
 
     }, []);
 
