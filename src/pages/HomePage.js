@@ -10,48 +10,9 @@ function HomePage() {
 
     const imageSliderRef = useRef();
     const navigate = useNavigate();
-    const newCollectionArray = [
-        {
-            id: 1,
-            name: 'Nike',
-            img: 'bannerimage.jpg',
-            category: 'backpacks',
-            originalPrice: 2500,
-            discountPercentage: 10,
-            inStockQuantity: 0,
-        },
-        {
-            id: 2,
-            name: 'Addidas',
-            img: 'bannerimage.jpg',
-            category: 'ladies bags',
-            originalPrice: 2100,
-            discountPercentage: 10,
-            inStockQuantity: 200,
-        },
-        {
-            id: 3,
-            name: 'Puma',
-            img: 'bannerimage.jpg',
-            category: 'handbags',
-            originalPrice: 1800,
-            discountPercentage: 5,
-            inStockQuantity: 200,
-
-        },
-        {
-            id: 4,
-            name: 'Vans',
-            img: 'bannerimage.jpg',
-            category: 'others',
-            originalPrice: 1000,
-            discountPercentage: null,
-            inStockQuantity: 5,
-        }
-    ];
+    const [newCollectionArray, setNewCollectionArray] = useState([])
 
     const [sliderImageArray, setSliderImageArray] = useState([]);
-    console.log(sliderImageArray);
 
     // useEffect(() => {
 
@@ -91,7 +52,24 @@ function HomePage() {
 
         }
 
+
+
+        async function getNewCollectionArray() {
+            const { data, error } = await supabase.from("bags")
+                .select("*");
+
+            if (data) {
+                console.log(data)
+                setNewCollectionArray(data);
+            }
+            if (error) {
+                console.error("Error fetching data", error)
+            }
+        }
+
         getSliderImageArray();
+        getNewCollectionArray();
+
     }, []);
 
     function goToItemDescription(itemId, itemCategory) {
