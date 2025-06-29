@@ -2,10 +2,9 @@ import '../styles/HomePage.css';
 import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
 import SocialMediaSection from '../components/SocialMediaSection.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-
-
+import { supabase } from '../supabase.js';
 
 function HomePage() {
 
@@ -51,31 +50,8 @@ function HomePage() {
         }
     ];
 
-    const sliderImageArray = [
-        {
-            id: 1,
-            name: 'Luios viton aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa asdasdas assssssssssss',
-            img: 'hello',
-            category: 'backpacks'
-
-
-        },
-        {
-            id: 2,
-            name: 'adiadas',
-            img: 'hello',
-            category: 'backpacks'
-
-        },
-        {
-            id: 3,
-            name: 'vans',
-            img: 'hello',
-            category: 'backpacks'
-
-        },
-    ];
-
+    const [sliderImageArray, setSliderImageArray] = useState([]);
+    console.log(sliderImageArray);
 
     // useEffect(() => {
 
@@ -98,6 +74,25 @@ function HomePage() {
     //     }
 
     // }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        async function getSliderImageArray() {
+            const { data, error } = await supabase.from('our_design')
+                .select("*");
+
+            if (data) {
+                setSliderImageArray(data);
+            }
+            if (error) {
+                console.error("Error fetching data", error);
+            }
+
+        }
+
+        getSliderImageArray();
+    }, []);
 
     function goToItemDescription(itemId, itemCategory) {
         navigate(`/category/${itemCategory}/${itemId}`);
@@ -142,7 +137,7 @@ function HomePage() {
                                     <p onClick={() => { goToItemDescription(item.id, item.category) }} className="button-text white-text">see product</p>
                                 </div>
                             </div>
-                            <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                            <img className="slider-image" src={item.img} alt="items-image" />
                         </div>
 
                     ))}

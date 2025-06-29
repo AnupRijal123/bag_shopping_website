@@ -71,13 +71,13 @@ function Navbar() {
                         <div className="navbar-item-dropdown-container">
                             <p className="white-text cursor-pointer scale-hover">others</p>
                             <div className="navbar-item-dropdown">
-                                <p className="white-text scale-hover cursor-pointer">school bags</p>
-                                <p className="white-text scale-hover cursor-pointer">college bags</p>
-                                <p className="white-text scale-hover cursor-pointer">office bags</p>
-                                <p className="white-text scale-hover cursor-pointer">shopping bags</p>
-                                <p className="white-text scale-hover cursor-pointer">guitar bags</p>
-                                <p className="white-text scale-hover cursor-pointer">gym bags</p>
-                                <p className="white-text scale-hover cursor-pointer">delivery bags</p>
+                                <p onClick={() => { goToCategoryPage('school bags') }} className="white-text scale-hover cursor-pointer">school bags</p>
+                                <p onClick={() => { goToCategoryPage('college bags') }} className="white-text scale-hover cursor-pointer">college bags</p>
+                                <p onClick={() => { goToCategoryPage('office bags') }} className="white-text scale-hover cursor-pointer">office bags</p>
+                                <p onClick={() => { goToCategoryPage('shopping bags') }} className="white-text scale-hover cursor-pointer">shopping bags</p>
+                                <p onClick={() => { goToCategoryPage('guitar bags') }} className="white-text scale-hover cursor-pointer">guitar bags</p>
+                                <p onClick={() => { goToCategoryPage('gym bags') }} className="white-text scale-hover cursor-pointer">gym bags</p>
+                                <p onClick={() => { goToCategoryPage('delivery bags') }} className="white-text scale-hover cursor-pointer">delivery bags</p>
                             </div>
                         </div>
                         <p onClick={() => { goToCategoryPage('sale') }} className="white-text cursor-pointer scale-hover">sale</p>
