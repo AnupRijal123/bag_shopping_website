@@ -19,7 +19,7 @@ function ItemDescriptionPage() {
         category: 'backpacks',
         originalPrice: 1000,
         discountPercentage: 10,
-        inStockQuantity: 0
+        inStockQuantity: 2
     };
 
     let actualPrice = itemDetails.originalPrice - (itemDetails.discountPercentage * itemDetails.originalPrice / 100);
