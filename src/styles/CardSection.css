@@ -9,13 +9,19 @@
     justify-content: space-evenly;
     grid-row-gap: 40px;
 
-
-
-
 }
 
 .card {
     position: relative;
+    width: 250px;
+}
+
+.card-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: filter 0.1s ease;
 }
 
 .tag {
@@ -32,13 +38,7 @@
     font-weight: 600;
 }
 
-.card-image {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: filter 0.1s ease;
-}
+
 
 .card:hover .card-image {
     filter: brightness(50%);
@@ -87,6 +87,9 @@
 
 @media only screen and (max-width:960px) {
 
+    .card {
+        width: 200px;
+    }
 
     .card-image {
         width: 200px;
@@ -95,6 +98,9 @@
 }
 
 @media only screen and (max-width:768px) {
+    .card {
+        width: 150px;
+    }
 
     .card-image {
         width: 150px;
@@ -106,7 +112,9 @@
 
 /*mobile phone*/
 @media only screen and (max-width:520px) {
-
+    .card {
+        width: 100px;
+    }
 
     .card-image {
         width: 100px;
