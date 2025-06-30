@@ -18,16 +18,25 @@ function CardSection(props) {
 
                 {props.cardItemsArray.map((item) => (
                     <div onClick={() => { goToItemDescription(item.id, item.category) }} className="card" key={item.id}>
-                        <div className="tag">
-                            {item.in_stock_quantity === 0 ?
-                                (<p className="small-text white-text tag-text">Out Of Stock</p>
-                                )
-                                :
+
+                        {
+                            item.in_stock_quantity === 0 || item.discount_percentage !== null ?
                                 (
-                                    <p className="small-text white-text tag-text">{item.discount_percentage ? `-${item.discount_percentage}%` : null}</p>
-                                )
-                            }
-                        </div>
+                                    <div className="tag">
+                                        {item.in_stock_quantity === 0 ?
+                                            (<p className="small-text white-text tag-text">Out Of Stock</p>
+                                            )
+                                            :
+                                            (
+                                                <p className="small-text white-text tag-text">{item.discount_percentage ? `-${item.discount_percentage}%` : null}</p>
+                                            )
+                                        }
+                                    </div>
+                                ) :
+                                null
+                        }
+
+
 
                         <img className="card-image" src={item.img[0]} alt="card-item" />
                         <h2 className="card-item-name-text black-text">{item.name}</h2>

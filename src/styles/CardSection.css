@@ -24,19 +24,6 @@
     transition: filter 0.1s ease;
 }
 
-.tag {
-    background-color: var(--dark-gray-color);
-    width: fit-content;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    left: 5px;
-    top: 5px;
-}
-
-.tag-text {
-    font-weight: 600;
-}
 
 
 
