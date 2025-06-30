@@ -1,6 +1,7 @@
 import '../styles/ConfirmOrderPage.css';
 import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react';
+import { supabase } from '../supabase.js';
 
 function ConfirmOrderPage() {
 
@@ -81,13 +82,70 @@ function ConfirmOrderPage() {
         localStorage.setItem('confirm-item-details', JSON.stringify(filteredOrderItem));
     }
 
-    function handleConfirmOrder() {
+
+    async function handleConfirmOrder() {
         console.log('confirmed clicked');
         //if any of form field is empty showing error message
         if (fullName.length === 0 || contactNumber.length === 0 || deliveryAddress.length === 0) {
             setShowErrorMessage(true);
         } else {
-            setShowSuccessMessage(true);
+
+            const { error } = await supabase
+                .from("orders_information")
+                .insert(
+                    {
+                        full_name: fullName,
+                        contact_no: contactNumber,
+                        delivery_address: deliveryAddress,
+                        order_details: orderItemsArray,
+                        total_price: totalPrice,
+                        delivery_charge: deliveryCharge,
+                        to_pay_amount: toPayAmount,
+                        delivery_date: `${formattedDeliveryStartDate} to ${formattedDeliveryEndDate}`
+
+
+                    }
+                );
+
+            if (error) {
+                console.error("Error inserting order", error)
+            } else {
+                setShowSuccessMessage(true);
+
+                setTimeout(() => {
+                    setShowSuccessMessage(false);
+                }, 2000);
+
+                //clearing form field
+                setFullName('');
+                setContactNumber('');
+                setDeliveryAddress('');
+
+
+                //clearing orderItemsArray
+                setOrderItemsArray([]);
+                localStorage.removeItem('confirm-item-details');
+
+
+            }
+
+
+
+
+
+            // console.log([
+            //     {
+            //         full_name: fullName,
+            //         contact: contactNumber,
+            //         address: deliveryAddress,
+            //         order_details: orderItemsArray,
+            //         total_price: totalPrice,
+            //         delivery_charge: deliveryCharge,
+            //         to_pay: toPayAmount,
+            //         delivery_date: `${formattedDeliveryStartDate} to ${formattedDeliveryEndDate}`
+
+            //     }
+            // ]);
         }
     }
 
@@ -157,6 +215,7 @@ function ConfirmOrderPage() {
                     <p className="black-text small-text ">Estimated delivery : {formattedDeliveryStartDate} to {formattedDeliveryEndDate}</p>
                 </div>
 
+
                 <div className="customer-information-input-container">
                     <h1 className="black-text">For delivery, Please enter your following details</h1>
 
@@ -176,9 +235,14 @@ function ConfirmOrderPage() {
                         <input
                             type="tel"
                             value={contactNumber}
+                            inputMode="numeric"
+                            maxLength={10}
                             placeholder="enter contact number"
                             onChange={(event) => {
-                                setContactNumber(event.target.value)
+                                const input = event.target.value;
+                                if (/^\d*$/.test(input)) {
+                                    setContactNumber(input);
+                                }
                             }}
                         />
                     </div>
@@ -198,15 +262,18 @@ function ConfirmOrderPage() {
                         <p className="black-text">Payment method</p>
                         <select>
                             <option>Cash on Delivery</option>
-                            <option disabled>Esewa(will be available soon)</option>
                         </select>
                     </div>
 
 
-                    <div onClick={handleConfirmOrder} className="button-layout button-transparent-background button-gray-border">
-                        <div className="button-background-container button-gray-background"></div>
-                        <p className="button-text dark-gray-text">confirm order</p>
-                    </div>
+                    {orderItemsArray.length !== 0 &&
+                        <div onClick={handleConfirmOrder} className="button-layout button-transparent-background button-gray-border">
+                            <div className="button-background-container button-gray-background"></div>
+                            <p className="button-text dark-gray-text">confirm order</p>
+                        </div>
+                    }
+
+
 
 
                     {showErrorMessage === true &&
@@ -220,6 +287,8 @@ function ConfirmOrderPage() {
 
 
                 </div>
+
+
 
             </div>
 

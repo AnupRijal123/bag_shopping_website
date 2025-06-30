@@ -87,11 +87,11 @@ function ItemDescriptionPage() {
 
 
 
-        localStorage.setItem('confirm-item-details', JSON.stringify(userConfirmedItemDetails));
 
         if (selectedColour.length === 0) {
             setShowErrorMessage(true);
         } else {
+            localStorage.setItem('confirm-item-details', JSON.stringify(userConfirmedItemDetails));
             navigate('/confirm-order');
         }
 

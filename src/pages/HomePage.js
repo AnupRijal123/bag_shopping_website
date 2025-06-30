@@ -40,7 +40,9 @@ function HomePage() {
 
         async function getNewCollectionArray() {
             const { data, error } = await supabase.from("bags")
-                .select("id,name,img,category,original_price,discount_percentage,in_stock_quantity");
+                .select("id,name,img,category,original_price,discount_percentage,in_stock_quantity")
+                .order("created_at", { ascending: false })
+                .limit(7);
 
             if (data) {
                 console.log(data)
