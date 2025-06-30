@@ -84,7 +84,7 @@ function Cart(props) {
                             <div key={index} className="order-item">
 
                                 <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
-                                    <img className="order-item-image" src={require('../assets/images/bannerimage.jpg')} alt="item-image" />
+                                    <img className="order-item-image" src={item.img} alt="item-image" />
                                     <h2 className="black-text small-text">{item.name}</h2>
                                 </div>
 

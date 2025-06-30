@@ -70,7 +70,7 @@ p {
 }
 
 .scale-hover:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .section-container {
@@ -238,6 +238,7 @@ select {
 .order-item {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid var(--dark-gray-color);

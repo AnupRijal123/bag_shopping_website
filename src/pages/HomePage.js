@@ -2,102 +2,98 @@ import '../styles/HomePage.css';
 import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
 import SocialMediaSection from '../components/SocialMediaSection.js';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-
-
+import { supabase } from '../supabase.js';
 
 function HomePage() {
 
     const imageSliderRef = useRef();
     const navigate = useNavigate();
-    const newCollectionArray = [
-        {
-            id: 1,
-            name: 'Nike',
-            img: 'bannerimage.jpg',
-            category: 'backpacks',
-            originalPrice: 2500,
-            discountPercentage: 10,
-            inStockQuantity: 0,
-        },
-        {
-            id: 2,
-            name: 'Addidas',
-            img: 'bannerimage.jpg',
-            category: 'ladies bags',
-            originalPrice: 2100,
-            discountPercentage: 10,
-            inStockQuantity: 200,
-        },
-        {
-            id: 3,
-            name: 'Puma',
-            img: 'bannerimage.jpg',
-            category: 'handbags',
-            originalPrice: 1800,
-            discountPercentage: 5,
-            inStockQuantity: 200,
+    const [newCollectionArray, setNewCollectionArray] = useState([])
 
-        },
-        {
-            id: 4,
-            name: 'Vans',
-            img: 'bannerimage.jpg',
-            category: 'others',
-            originalPrice: 1000,
-            discountPercentage: null,
-            inStockQuantity: 5,
+    const [sliderImageArray, setSliderImageArray] = useState([]);
+
+    const [modelImageUrl, setModelImageUrl] = useState('');
+
+    useEffect(() => {
+
+
+
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
+        async function getSliderImageArray() {
+            const { data, error } = await supabase.from('our_design')
+                .select("*");
+
+            if (data) {
+                setSliderImageArray(data);
+            }
+            if (error) {
+                console.error("Error fetching data", error);
+            }
+
         }
-    ];
-
-    const sliderImageArray = [
-        {
-            id: 1,
-            name: 'Luios viton aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa asdasdas assssssssssss',
-            img: 'hello',
-            category: 'backpacks'
 
 
-        },
-        {
-            id: 2,
-            name: 'adiadas',
-            img: 'hello',
-            category: 'backpacks'
 
-        },
-        {
-            id: 3,
-            name: 'vans',
-            img: 'hello',
-            category: 'backpacks'
+        async function getNewCollectionArray() {
+            const { data, error } = await supabase.from("bags")
+                .select("id,name,img,category,original_price,discount_percentage,in_stock_quantity")
+                .order("created_at", { ascending: false })
+                .limit(7);
 
-        },
-    ];
+            if (data) {
+                setNewCollectionArray(data);
+            }
+            if (error) {
+                console.error("Error fetching data", error)
+            }
+        }
+
+        async function getModelImage() {
+            const { data, error } = await supabase
+                .from("homepage_model_image")
+                .select("image_url");
+
+            if (data) {
+                setModelImageUrl(data[0].image_url);
+            }
+            if (error) {
+                console.error('Error fetching model image', error);
+            }
+        }
+
+        getSliderImageArray();
+        getNewCollectionArray();
+        getModelImage();
+
+        //image slider scrolling 
+        const slideInterval = setInterval(() => {
 
 
-    // useEffect(() => {
-
-    //     //image slider scrolling 
-    //     const slideInterval = setInterval(() => {
-
-
-    //         if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
-    //             imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
-    //         } else {
-    //             //scroll to beginning
-    //             imageSliderRef.current.scrollTo(0, 0);
-    //         }
+            if (imageSliderRef !== null) {
+                if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
+                    imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
+                } else {
+                    //scroll to beginning
+                    imageSliderRef.current.scrollTo(0, 0);
+                }
+            }
 
 
-    //     }, 3000);
 
-    //     return () => {
-    //         clearInterval(slideInterval);
-    //     }
 
-    // }, []);
+        }, 3000);
+
+        return () => {
+            clearInterval(slideInterval);
+        }
+
+    }, []);
 
     function goToItemDescription(itemId, itemCategory) {
         navigate(`/category/${itemCategory}/${itemId}`);
@@ -114,7 +110,10 @@ function HomePage() {
             <div className="section-container coloured-background-section">
 
                 <div className="coloured-background-section-image-container">
-                    <img className="coloured-background-section-image" src={require('../assets/images/bannerimage.jpg')} alt="model-image" />
+
+                    {modelImageUrl.length !== 0 &&
+                        <img className="coloured-background-section-image" src={modelImageUrl} alt="model-image" />
+                    }
                 </div>
 
                 <div className="coloured-background-content">
@@ -142,7 +141,7 @@ function HomePage() {
                                     <p onClick={() => { goToItemDescription(item.id, item.category) }} className="button-text white-text">see product</p>
                                 </div>
                             </div>
-                            <img className="slider-image" src={require('../assets/images/bannerimage.jpg')} alt="items-image" />
+                            <img className="slider-image" src={item.img} alt="items-image" />
                         </div>
 
                     ))}

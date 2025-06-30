@@ -1,6 +1,6 @@
 .footer {
     background-color: var(--dark-gray-color);
-    padding: 30px 0px 10px 0px;
+    padding: 30px 0px 20px 0px;
 }
 
 .footer-first-row {
@@ -22,10 +22,21 @@
     gap: 10px;
 }
 
+.whatsapp-image-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.whatsapp-image {
+    width: 30px;
+    height: 30px;
+}
+
+
 /* mobile phones */
 @media only screen and (max-width:520px) {
     .footer-first-row {
-        /* background-color: pink; */
         flex-direction: column;
         gap: 20px;
         padding: 30px 20px;

@@ -37,6 +37,31 @@
 
 }
 
+.navbar-item-dropdown-container {
+    position: relative;
+}
+
+.navbar-item-dropdown {
+    position: absolute;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 0px 5px 10px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.navbar-item-dropdown-container:hover .navbar-item-dropdown {
+    display: flex;
+    /*display:block ko satta ma yo lekheko */
+}
+
+.coloured-navbar .navbar-item-dropdown {
+    background-color: var(--dark-gray-color);
+    box-shadow: 0px 20px 40px 10px;
+}
+
 
 
 @media only screen and (max-width:768px) {
@@ -46,5 +71,9 @@
 
     .navbar-second-row-items-contanier {
         gap: 10px;
+    }
+
+    .navbar-item-dropdown {
+        left: -60px;
     }
 }

@@ -13,7 +13,7 @@ function Footer() {
 
                 <div className="footer-column" >
                     <h2 className="white-text">For queries</h2>
-                    <p className="white-text">example@gmail.com</p>
+                    <p className="white-text">supppliersbulbul@gmail.com</p>
                 </div>
 
                 <div className="footer-column">
@@ -21,21 +21,27 @@ function Footer() {
 
                     <div>
                         <p className="white-text">location</p>
-                        <p className="white-text">Kathmandu,Nepal</p>
+                        <p className="white-text">Kathmandu</p>
                     </div>
 
 
                     <div>
                         <p className="white-text">social media</p>
-
-
                         <SocialMediaSection />
                     </div>
 
+                    <div>
+                        <p className="white-text">whatsapp</p>
+                        <div className="whatsapp-image-container">
+                            <img className="whatsapp-image" src={require('../assets/logos/whatsapplogo.png')} alt="whatsapp-logo" />
+                            <p className="white-text">9851161443</p>
+                        </div>
+
+                    </div>
 
                     <div>
                         <p className="white-text">contact</p>
-                        <p className="white-text">+977 9851234567,+977 9851765432</p>
+                        <p className="white-text">9851161443 , 9813739391 , 9851100687</p>
 
                     </div>
 
@@ -44,8 +50,10 @@ function Footer() {
 
             <div className="footer-second-row">
                 <p className="white-text">All Rights Reserved,{currentYear}</p>
-                <p className="small-text light-gray-text">Website designed and coded by Anup Rijal</p>
+                <p className="white-text">Estd : 2011</p>
             </div>
+            <p className="small-text light-gray-text center-aligned-text ">Website designed and coded by Anup Rijal</p>
+
 
 
         </div>
