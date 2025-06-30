@@ -13,6 +13,7 @@
 
 .item-image-container {
     width: 350px;
+    position: relative;
 }
 
 .image-container {

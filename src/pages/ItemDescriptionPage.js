@@ -18,7 +18,6 @@ function ItemDescriptionPage() {
     let [actualPrice, setActualPrice] = useState(null);
 
     const [userConfirmedItemDetails, setUserConfirmedItemDetails] = useState([]);
-
     useEffect(() => {
         //checking if itemDetails is not empty
         if (Object.keys(itemDetails).length !== 0) {
@@ -132,6 +131,28 @@ function ItemDescriptionPage() {
                     <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
                     <div className="item-row">
                         <div className="item-image-container">
+
+
+                            {itemDetails.in_stock_quantity === 0 || itemDetails.discount_percentage !== null ?
+                                (
+                                    <div className="tag">
+
+                                        {itemDetails.in_stock_quantity === 0 &&
+                                            <p className="small-text white-text tag-text">Out Of Stock</p>
+                                        }
+
+                                        {itemDetails.discount_percentage &&
+                                            <p className="small-text white-text tag-text">-{itemDetails.discount_percentage}%</p>
+
+                                        }
+                                    </div>
+                                )
+                                :
+                                null
+                            }
+
+
+
                             <div ref={itemImageContainerRef} className="image-container">
 
 
