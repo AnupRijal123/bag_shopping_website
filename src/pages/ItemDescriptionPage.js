@@ -7,7 +7,6 @@ function ItemDescriptionPage() {
 
     const urlParamater = useParams();
     const id = urlParamater.id;
-    console.log(id)
     const itemImageContainerRef = useRef();
     const navigate = useNavigate();
     const [selectedColour, setSelectedColour] = useState('');
@@ -15,14 +14,12 @@ function ItemDescriptionPage() {
     const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
 
     const [itemDetails, setItemDetails] = useState({});
-    console.log(itemDetails)
 
     let [actualPrice, setActualPrice] = useState(null);
 
     const [userConfirmedItemDetails, setUserConfirmedItemDetails] = useState([]);
 
     useEffect(() => {
-        console.log('itemDetails changed')
         //checking if itemDetails is not empty
         if (Object.keys(itemDetails).length !== 0) {
             let userConfirmedItem = [
@@ -52,10 +49,10 @@ function ItemDescriptionPage() {
                 .select("*")
                 .eq("id", id);
 
-            if (data) {
-                console.log(data);
-                console.log(data[0]);
+            if (data && data.length !== 0) {
                 setItemDetails(data[0]);
+            } else {
+                setItemDetails({});
             }
             if (error) {
                 console.error("Error fetching data", error)

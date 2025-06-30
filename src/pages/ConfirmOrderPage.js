@@ -84,7 +84,6 @@ function ConfirmOrderPage() {
 
 
     async function handleConfirmOrder() {
-        console.log('confirmed clicked');
         //if any of form field is empty showing error message
         if (fullName.length === 0 || contactNumber.length === 0 || deliveryAddress.length === 0) {
             setShowErrorMessage(true);
@@ -128,24 +127,6 @@ function ConfirmOrderPage() {
 
 
             }
-
-
-
-
-
-            // console.log([
-            //     {
-            //         full_name: fullName,
-            //         contact: contactNumber,
-            //         address: deliveryAddress,
-            //         order_details: orderItemsArray,
-            //         total_price: totalPrice,
-            //         delivery_charge: deliveryCharge,
-            //         to_pay: toPayAmount,
-            //         delivery_date: `${formattedDeliveryStartDate} to ${formattedDeliveryEndDate}`
-
-            //     }
-            // ]);
         }
     }
 

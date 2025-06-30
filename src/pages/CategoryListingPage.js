@@ -6,7 +6,6 @@ import { supabase } from '../supabase.js';
 
 function CategoryListingPage() {
     const urlCategory = useParams();
-    console.log(urlCategory);
 
     const [categoryArray, setCategoryArray] = useState([]);
 
@@ -24,7 +23,6 @@ function CategoryListingPage() {
                 .eq("category", urlCategory.items)
 
             if (data) {
-                console.log(data)
                 setCategoryArray(data);
             }
             if (error) {

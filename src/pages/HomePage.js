@@ -45,7 +45,6 @@ function HomePage() {
                 .limit(7);
 
             if (data) {
-                console.log(data)
                 setNewCollectionArray(data);
             }
             if (error) {

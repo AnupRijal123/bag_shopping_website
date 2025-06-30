@@ -2,7 +2,6 @@ import '../styles/CardSection.css';
 import { useNavigate } from 'react-router';
 
 function CardSection(props) {
-    console.log(props)
 
     const navigate = useNavigate();
 
