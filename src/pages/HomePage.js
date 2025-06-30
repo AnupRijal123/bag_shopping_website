@@ -14,6 +14,8 @@ function HomePage() {
 
     const [sliderImageArray, setSliderImageArray] = useState([]);
 
+    const [modelImageUrl, setModelImageUrl] = useState('');
+
     useEffect(() => {
 
 
@@ -52,19 +54,37 @@ function HomePage() {
             }
         }
 
+        async function getModelImage() {
+            const { data, error } = await supabase
+                .from("homepage_model_image")
+                .select("image_url");
+
+            if (data) {
+                setModelImageUrl(data[0].image_url);
+            }
+            if (error) {
+                console.error('Error fetching model image', error);
+            }
+        }
+
         getSliderImageArray();
         getNewCollectionArray();
+        getModelImage();
 
         //image slider scrolling 
         const slideInterval = setInterval(() => {
 
 
-            if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
-                imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
-            } else {
-                //scroll to beginning
-                imageSliderRef.current.scrollTo(0, 0);
+            if (imageSliderRef !== null) {
+                if (imageSliderRef.current.scrollLeft + imageSliderRef.current.clientWidth < imageSliderRef.current.scrollWidth) {
+                    imageSliderRef.current.scrollBy(imageSliderRef.current.clientWidth, 0);
+                } else {
+                    //scroll to beginning
+                    imageSliderRef.current.scrollTo(0, 0);
+                }
             }
+
+
 
 
         }, 3000);
@@ -90,7 +110,10 @@ function HomePage() {
             <div className="section-container coloured-background-section">
 
                 <div className="coloured-background-section-image-container">
-                    <img className="coloured-background-section-image" src={require('../assets/images/bannerimage.jpg')} alt="model-image" />
+
+                    {modelImageUrl.length !== 0 &&
+                        <img className="coloured-background-section-image" src={modelImageUrl} alt="model-image" />
+                    }
                 </div>
 
                 <div className="coloured-background-content">
