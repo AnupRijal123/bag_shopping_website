@@ -71,11 +71,14 @@ function Navbar() {
                         <div className="navbar-item-dropdown-container">
                             <p className="white-text cursor-pointer scale-hover">others</p>
                             <div className="navbar-item-dropdown">
+                                <p onClick={() => { goToCategoryPage('bulbul') }} className="white-text scale-hover cursor-pointer">bulbul bags</p>
                                 <p onClick={() => { goToCategoryPage('school') }} className="white-text scale-hover cursor-pointer">school bags</p>
                                 <p onClick={() => { goToCategoryPage('college') }} className="white-text scale-hover cursor-pointer">college bags</p>
+                                <p onClick={() => { goToCategoryPage('laptop') }} className="white-text scale-hover cursor-pointer">laptop bags</p>
                                 <p onClick={() => { goToCategoryPage('office') }} className="white-text scale-hover cursor-pointer">office bags</p>
                                 <p onClick={() => { goToCategoryPage('shopping') }} className="white-text scale-hover cursor-pointer">shopping bags</p>
                                 <p onClick={() => { goToCategoryPage('guitar') }} className="white-text scale-hover cursor-pointer">guitar bags</p>
+                                <p onClick={() => { goToCategoryPage('travel') }} className="white-text scale-hover cursor-pointer">travel bags</p>
                                 <p onClick={() => { goToCategoryPage('gym') }} className="white-text scale-hover cursor-pointer">gym bags</p>
                                 <p onClick={() => { goToCategoryPage('delivery') }} className="white-text scale-hover cursor-pointer">delivery bags</p>
                             </div>

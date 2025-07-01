@@ -9,7 +9,7 @@ function CategoryListingPage() {
 
     const [categoryArray, setCategoryArray] = useState([]);
 
-    const [categoryHeadingText, setCategoryHeadingText] = useState('hello');
+    const [categoryHeadingText, setCategoryHeadingText] = useState('');
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,6 +34,9 @@ function CategoryListingPage() {
 
         //setting category heading text when url params changes
 
+        if (urlCategory.items === 'bulbul') {
+            setCategoryHeadingText('bulbul bags')
+        }
         if (urlCategory.items === 'backpack') {
             setCategoryHeadingText('backpacks')
         }
@@ -49,6 +52,9 @@ function CategoryListingPage() {
         if (urlCategory.items === 'college') {
             setCategoryHeadingText('college bags')
         }
+        if (urlCategory.items === 'laptop') {
+            setCategoryHeadingText('laptop bags')
+        }
         if (urlCategory.items === 'office') {
             setCategoryHeadingText('office bags')
         }
@@ -57,6 +63,9 @@ function CategoryListingPage() {
         }
         if (urlCategory.items === 'guitar') {
             setCategoryHeadingText('guitar bags')
+        }
+        if (urlCategory.items === 'travel') {
+            setCategoryHeadingText('travel bags')
         }
         if (urlCategory.items === 'gym') {
             setCategoryHeadingText('gym bags')
