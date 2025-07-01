@@ -36,7 +36,7 @@ function Banner() {
         <div className="banner-container">
 
             {videoUrl.length !== 0 &&
-                <video className="banner-video" autoPlay muted loop>
+                <video className="banner-video" autoPlay muted loop playsInline>
                     <source src={videoUrl} type="video/mp4" />
                 </video>
             }
