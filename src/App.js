@@ -6,6 +6,8 @@ import CategoryListingPage from './pages/CategoryListingPage.js';
 import ItemDescriptionPage from './pages/ItemDescriptionPage.js';
 import ConfirmOrderPage from './pages/ConfirmOrderPage.js';
 import AdminPage from './pages/AdminPage.js';
+import AdminViewOrders from './components/AdminViewOrders.js';
+import AdminAddItems from './components/AdminAddItems.js';
 import { Routes, Route, useLocation } from 'react-router';
 
 
@@ -32,7 +34,16 @@ function App() {
 
         <Route path="/confirm-order" element={<ConfirmOrderPage />} />
 
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/*" element={<AdminPage />} />
+
+        <Route path="/admin/*" element={<AdminPage />}>
+
+          <Route path="orders" element={<AdminViewOrders />} />
+
+          <Route path="add" element={<AdminAddItems />} />
+
+
+        </Route>
 
 
       </Routes>

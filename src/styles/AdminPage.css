@@ -1,4 +1,27 @@
-.admin-page-container {
-    background-color: Red;
-    min-height: 100vh;
+.admin-navbar {
+    background-color: yellow;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+.admin-button-container {
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.admin-nav-link-text {
+    cursor: pointer;
+}
+
+.admin-nav-link-text:hover {
+    text-decoration: underline;
+}
+
+.admin-content {
+    background-color: Pink;
+    margin-top: 120px;
 }
