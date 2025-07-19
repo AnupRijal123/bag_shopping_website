@@ -14,7 +14,6 @@ function ItemDescriptionPage() {
     const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
 
     const [itemDetails, setItemDetails] = useState({});
-    console.log(itemDetails);
 
     let [actualPrice, setActualPrice] = useState(null);
 
