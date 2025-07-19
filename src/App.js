@@ -5,40 +5,40 @@ import HomePage from './pages/HomePage.js';
 import CategoryListingPage from './pages/CategoryListingPage.js';
 import ItemDescriptionPage from './pages/ItemDescriptionPage.js';
 import ConfirmOrderPage from './pages/ConfirmOrderPage.js';
-import { BrowserRouter, Routes, Route } from 'react-router';
+import AdminPage from './pages/AdminPage.js';
+import { Routes, Route, useLocation } from 'react-router';
 
 
 function App() {
+
+  const location = useLocation();
+
+  let isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
     <>
 
-      <BrowserRouter>
-        <Navbar />
-
-        <Routes>
-
-          <Route path="/" element={<HomePage />} />
+      {isAdminRoute === false && <Navbar />}
 
 
-          <Route path="/category/:items" element={<CategoryListingPage />} />
+      <Routes>
 
-          <Route path="/category/:items/:id" element={<ItemDescriptionPage />} />
-
-          <Route path="/confirm-order" element={<ConfirmOrderPage />} />
+        <Route path="/" element={<HomePage />} />
 
 
-        </Routes>
+        <Route path="/category/:items" element={<CategoryListingPage />} />
+
+        <Route path="/category/:items/:id" element={<ItemDescriptionPage />} />
+
+        <Route path="/confirm-order" element={<ConfirmOrderPage />} />
+
+        <Route path="/admin" element={<AdminPage />} />
 
 
-      </BrowserRouter>
+      </Routes>
 
 
-      <Footer />
-
-
-
-
-
+      {isAdminRoute === false && <Footer />}
 
 
     </>
