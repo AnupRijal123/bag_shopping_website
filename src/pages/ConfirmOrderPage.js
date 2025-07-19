@@ -111,10 +111,6 @@ function ConfirmOrderPage() {
             } else {
                 setShowSuccessMessage(true);
 
-                setTimeout(() => {
-                    setShowSuccessMessage(false);
-                }, 2000);
-
                 //clearing form field
                 setFullName('');
                 setContactNumber('');
