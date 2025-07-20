@@ -1,0 +1,12 @@
+thead {
+    background-color: Red;
+}
+
+tbody tr {
+    background-color: yellow;
+    border: 1px solid black;
+}
+
+td {
+    word-break: break-all;
+}
