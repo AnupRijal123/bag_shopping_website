@@ -100,7 +100,8 @@ function ConfirmOrderPage() {
                         total_price: totalPrice,
                         delivery_charge: deliveryCharge,
                         to_pay_amount: toPayAmount,
-                        delivery_date: `${formattedDeliveryStartDate} to ${formattedDeliveryEndDate}`
+                        delivery_date: `${formattedDeliveryStartDate} to ${formattedDeliveryEndDate}`,
+                        order_status: 'pending'
 
 
                     }
