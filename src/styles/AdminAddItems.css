@@ -1,0 +1,7 @@
+.form-row {
+    background-color: Red;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0px;
+}

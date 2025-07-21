@@ -33,7 +33,7 @@ function AdminViewOrders() {
             <button onClick={getOrders}>Refresh Table Data</button>
             <table>
                 <colgroup>
-                    <col style={{ width: '10px' }} />
+                    <col />
                     <col style={{ width: '120px' }} />
                     <col />
                     <col />
@@ -52,6 +52,8 @@ function AdminViewOrders() {
                         <th>Order Details</th>
                         <th>Order Placed Date</th>
                         <th>Total Price</th>
+                        <th>Delivery Charge</th>
+                        <th>To Pay</th>
                         <th>Delivery Date</th>
                         <th>Status</th>
                     </tr>
@@ -79,6 +81,8 @@ function AdminViewOrders() {
 
                             <td>{new Date(item.created_at).toLocaleDateString('en-CA')}</td>
                             <td>{item.total_price}</td>
+                            <td>{item.delivery_charge}</td>
+                            <td>{item.to_pay_amount}</td>
                             <td>{item.delivery_date}</td>
                             <td>{item.order_status}</td>
 
