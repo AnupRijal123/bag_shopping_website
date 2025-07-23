@@ -8,7 +8,7 @@ function AdminAddItems() {
     const [bagData, setBagData] = useState({
         name: '',
         code: '',
-        category: '',
+        category: 'backpack',
         original_price: '',
         discount_percentage: '',
         in_stock_quantity: '',
@@ -18,7 +18,9 @@ function AdminAddItems() {
     });
 
     const [files, setFiles] = useState([]);
-    console.log(files)
+    console.log(files);
+
+
 
     function handleChange(event) {
         console.log(event.target)
@@ -63,13 +65,62 @@ function AdminAddItems() {
         }
 
         console.log(imageUrls);
+        return imageUrls;
 
 
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        uploadImages();
+
+        let imgUrls = [];
+        try {
+            imgUrls = await uploadImages();
+        }
+        catch (error) {
+            alert("Image upload failed" + error.message);
+            return;
+        }
+
+        const coloursArray = bagData.available_colours.split(',');
+        console.log(coloursArray);
+
+        const { error } = await supabase
+            .from("bags")
+            .insert([
+                {
+                    code_number: bagData.code,
+                    name: bagData.name,
+                    img: imgUrls,
+                    category: bagData.category,
+                    original_price: bagData.original_price,
+                    discount_percentage: bagData.discount_percentage,
+                    in_stock_quantity: bagData.in_stock_quantity,
+                    avaiable_colours: coloursArray,
+                    description: bagData.description
+                }
+            ]);
+
+        if (error) {
+            alert("Bag Upload Failed" + error.message);
+        } else {
+            alert("Bag Added Successfully");
+            //clearing  state
+            setBagData({
+                name: '',
+                code: '',
+                category: 'backpack',
+                original_price: '',
+                discount_percentage: '',
+                in_stock_quantity: '',
+                available_colours: '',
+                description: '',
+            });
+
+            setFiles([]);
+        }
+
+
     }
 
 
@@ -119,7 +170,7 @@ function AdminAddItems() {
 
             <div className="form-row">
                 <h2>Available Colours</h2>
-                <input type="text" name="available_colours" value={bagData.available_colours} onChange={handleChange} />
+                <input type="text" name="available_colours" value={bagData.available_colours} onChange={handleChange} placeholder="e.g. red,green,blue" />
             </div>
 
             <div className="form-row">

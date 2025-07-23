@@ -7,7 +7,8 @@ function SalePage() {
     const [saleItemsArray, setSaleItemsArray] = useState([]);
 
     useEffect(() => {
-        console.log('ssale page mounted');
+        window.scrollTo(0, 0);
+
         async function getSaleItems() {
             const { data, error } = await supabase
                 .from("bags")
@@ -15,7 +16,6 @@ function SalePage() {
                 .gte("discount_percentage", 30);
 
             if (data) {
-                console.log(data);
                 setSaleItemsArray(data);
             }
 
