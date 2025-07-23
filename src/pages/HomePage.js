@@ -104,7 +104,7 @@ function HomePage() {
             <Banner />
 
             <div className="section-container">
-                <CardSection cardItemsArray={newCollectionArray} cardItemsHeadingText="New Collection" />
+                <CardSection cardItemsArray={newCollectionArray} cardItemsHeadingText="Latest Drop" />
             </div>
 
             <div className="section-container coloured-background-section">
@@ -117,7 +117,7 @@ function HomePage() {
                 </div>
 
                 <div className="coloured-background-content">
-                    <h1 className="white-text">Follow us for updates and exclusive offers on</h1>
+                    <h2 className="white-text">Find Us on Social Media</h2>
 
 
                     <SocialMediaSection />
@@ -126,7 +126,7 @@ function HomePage() {
 
 
             <div className="section-container">
-                <h1 className="section-heading-text center-aligned-text heading-text black-text">Our Designs</h1>
+                <h2 className="section-heading-text center-aligned-text heading-text black-text">Designed by Us</h2>
 
                 <div ref={imageSliderRef} className="image-slider-section-container">
 

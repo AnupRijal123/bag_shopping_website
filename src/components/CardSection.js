@@ -12,7 +12,7 @@ function CardSection(props) {
 
     return (
         <>
-            <h1 className="section-heading-text center-aligned-text black-text">{props.cardItemsHeadingText}</h1>
+            <h2 className="section-heading-text center-aligned-text black-text">{props.cardItemsHeadingText}</h2>
 
             <div className="card-container">
 

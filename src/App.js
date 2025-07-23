@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage.js';
 import CategoryListingPage from './pages/CategoryListingPage.js';
 import ItemDescriptionPage from './pages/ItemDescriptionPage.js';
 import ConfirmOrderPage from './pages/ConfirmOrderPage.js';
+import SalePage from './pages/SalePage.js';
 import AdminPage from './pages/AdminPage.js';
 import AdminViewOrders from './components/AdminViewOrders.js';
 import AdminAddItems from './components/AdminAddItems.js';
@@ -51,6 +52,7 @@ function App() {
         <Route path="/category/:items/:id" element={<ItemDescriptionPage />} />
 
         <Route path="/confirm-order" element={<ConfirmOrderPage />} />
+        <Route path="/sale" element={<SalePage />} />
 
         <Route path="/admin/*" element={<AdminPage />} />
 

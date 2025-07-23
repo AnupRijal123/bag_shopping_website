@@ -64,13 +64,16 @@ function Navbar() {
                     <div className="navbar-second-row-items-contanier">
 
 
+                        <p onClick={() => {
+                            navigate('/sale');
+                        }} className="white-text cursor-pointer scale-hover">sale</p>
 
                         <p onClick={() => { goToCategoryPage('backpack') }} className="white-text cursor-pointer scale-hover">backpacks</p>
                         <p onClick={() => { goToCategoryPage('handbag') }} className="white-text cursor-pointer scale-hover">handbags</p>
-                        <p onClick={() => { goToCategoryPage('ladies') }} className="white-text cursor-pointer scale-hover">ladies bags</p>
+                        <p onClick={() => { goToCategoryPage('ladies') }} className="white-text cursor-pointer scale-hover">ladies</p>
 
                         <div className="navbar-item-dropdown-container">
-                            <p className="white-text cursor-pointer scale-hover">others</p>
+                            <p className="white-text cursor-pointer scale-hover">more</p>
                             <div className="navbar-item-dropdown">
                                 <p onClick={() => { goToCategoryPage('bulbul') }} className="white-text scale-hover cursor-pointer">bulbul bags</p>
                                 <p onClick={() => { goToCategoryPage('school') }} className="white-text scale-hover cursor-pointer">school bags</p>

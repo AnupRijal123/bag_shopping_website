@@ -128,7 +128,7 @@ function ItemDescriptionPage() {
 
             {Object.keys(itemDetails).length !== 0 &&
                 <div className="section-container">
-                    <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
+                    <h2 className="item-description-heading-text black-text">{itemDetails.name}</h2>
                     <div className="item-row">
                         <div className="item-image-container">
 
@@ -172,10 +172,10 @@ function ItemDescriptionPage() {
                         <div className="item-content-container">
                             <div className="price-container">
                                 {itemDetails.discount_percentage !== null &&
-                                    <h1 className="strike-text">Rs {itemDetails.original_price}</h1>
+                                    <h2 className="strike-text">Rs {itemDetails.original_price}</h2>
 
                                 }
-                                <h1 className="black-text">Rs {itemDetails.original_price - (itemDetails.discount_percentage * itemDetails.original_price / 100)}</h1>
+                                <h2 className="black-text">Rs {itemDetails.original_price - (itemDetails.discount_percentage * itemDetails.original_price / 100)}</h2>
                             </div>
 
 

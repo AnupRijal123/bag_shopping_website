@@ -145,7 +145,7 @@ function ConfirmOrderPage() {
 
                                         <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
                                             <img className="order-item-image" src={item.img} alt="item-image" />
-                                            <h2 className="black-text">{item.name}</h2>
+                                            <h2 className="black-text light-weight-text">{item.name}</h2>
                                         </div>
 
                                         <div className="order-item-right-container">
@@ -195,7 +195,7 @@ function ConfirmOrderPage() {
 
 
                 <div className="customer-information-input-container">
-                    <h1 className="black-text">For delivery, Please enter your following details</h1>
+                    <h2 className="black-text">For delivery, Please enter your following details</h2>
 
                     <div className="customer-input-row">
                         <p className="black-text">Full Name</p>

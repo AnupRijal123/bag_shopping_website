@@ -21,7 +21,7 @@ h1 {
 
 h2 {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 p {
@@ -32,6 +32,10 @@ p {
 
 .small-text {
     font-size: 12px;
+}
+
+.light-weight-text {
+    font-weight: 400;
 }
 
 .white-text {
@@ -51,7 +55,7 @@ p {
 }
 
 .red-text {
-    color: #ff0000;
+    color: #c41429;
 }
 
 .green-text {
@@ -76,7 +80,7 @@ p {
 
 .strike-text {
     text-decoration: line-through;
-    color: #c41429;
+    color: #A87676;
 }
 
 .link-text {
@@ -268,7 +272,7 @@ select {
 }
 
 .tag {
-    background-color: #c41429;
+    background-color: #A87676;
     width: fit-content;
     padding: 5px;
     position: absolute;
