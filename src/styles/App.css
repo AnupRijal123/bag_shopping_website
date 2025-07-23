@@ -76,6 +76,7 @@ p {
 
 .strike-text {
     text-decoration: line-through;
+    color: #c41429;
 }
 
 .link-text {
@@ -191,8 +192,7 @@ p {
 }
 
 .top-container {
-    background-color: var(--dark-gray-color);
-    height: 155px;
+    height: 113px;
     width: 100%;
 }
 
@@ -268,7 +268,7 @@ select {
 }
 
 .tag {
-    background-color: #f32c2c;
+    background-color: #c41429;
     width: fit-content;
     padding: 5px;
     position: absolute;

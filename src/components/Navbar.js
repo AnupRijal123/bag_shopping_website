@@ -11,7 +11,6 @@ function Navbar() {
 
     const [isCartClicked, setIsCartClicked] = useState(false);
     const location = useLocation();
-    console.log(location)
 
     useEffect(() => {
 

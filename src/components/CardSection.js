@@ -51,7 +51,7 @@ function CardSection(props) {
                                     :
                                     (
                                         <>
-                                            <p className="strike-text light-gray-text">Rs{item.original_price}</p>
+                                            <p className="strike-text">Rs{item.original_price}</p>
                                             <p className="black-text">
                                                 Rs{item.original_price - (item.discount_percentage * item.original_price / 100)}
                                             </p>

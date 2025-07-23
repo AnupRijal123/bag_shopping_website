@@ -9,6 +9,7 @@ import AdminPage from './pages/AdminPage.js';
 import AdminViewOrders from './components/AdminViewOrders.js';
 import AdminAddItems from './components/AdminAddItems.js';
 import { Routes, Route, useLocation } from 'react-router';
+import { useEffect } from 'react';
 
 
 function App() {
@@ -16,6 +17,23 @@ function App() {
   const location = useLocation();
 
   let isAdminRoute = location.pathname.startsWith('/admin');
+
+  useEffect(() => {
+    console.log('app.js mounted');
+
+    //disable zoom and pinch in mobile and tablets
+    function handleGestureStart(e) {
+      e.preventDefault();
+    }
+
+    document.addEventListener('gesturestart', handleGestureStart)
+
+    return () => {
+      document.removeEventListener('gesturestart', handleGestureStart)
+    }
+
+  }, []);
+
 
   return (
     <>

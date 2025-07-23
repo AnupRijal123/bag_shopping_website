@@ -172,7 +172,7 @@ function ItemDescriptionPage() {
                         <div className="item-content-container">
                             <div className="price-container">
                                 {itemDetails.discount_percentage !== null &&
-                                    <h1 className="strike-text light-gray-text">Rs {itemDetails.original_price}</h1>
+                                    <h1 className="strike-text">Rs {itemDetails.original_price}</h1>
 
                                 }
                                 <h1 className="black-text">Rs {itemDetails.original_price - (itemDetails.discount_percentage * itemDetails.original_price / 100)}</h1>
