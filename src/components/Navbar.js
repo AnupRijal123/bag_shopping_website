@@ -1,6 +1,6 @@
 import '../styles/Navbar.css';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import Cart from './Cart.js';
 
 function Navbar() {
@@ -10,6 +10,8 @@ function Navbar() {
     const navigate = useNavigate();
 
     const [isCartClicked, setIsCartClicked] = useState(false);
+    const location = useLocation();
+    console.log(location)
 
     useEffect(() => {
 
@@ -51,7 +53,7 @@ function Navbar() {
 
     return (
         <>
-            <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'}`}>
+            <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'} ${location.pathname !== '/' && 'coloured-navbar'}`}>
                 <div className="navbar-first-row">
                     <img className="brand-logo" src={require('../assets/logos/bulbul_logo.png')} alt="logo" />
                     <div className="navbar-first-row-items">

@@ -40,9 +40,8 @@ function AdminAddItems() {
 
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
-            console.log(file);
-            console.log(file.name)
-            const filePath = `bag-images/${Date().now}-${file.name}`;
+
+            const filePath = `bag-images/${Date.now()}-${file.name}`;
 
             //upload image to supabase
 
@@ -52,13 +51,30 @@ function AdminAddItems() {
                 console.error("Error uploading images", error);
             }
 
+            //image upload vayo aba uploaded image ko url liney
+            const { data } = supabase.storage
+                .from("bag-images")
+                .getPublicUrl(filePath);
+
+            // console.log(data);
+            console.log(data.publicUrl);
+            imageUrls.push(data.publicUrl);
 
         }
+
+        console.log(imageUrls);
+
+
     }
 
-    uploadImages();
+    function handleSubmit(e) {
+        e.preventDefault();
+        uploadImages();
+    }
+
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="form-row">
                 <h2>Bag name</h2>
                 <input type="text" name="name" value={bagData.name} onChange={handleChange} required />
@@ -115,6 +131,8 @@ function AdminAddItems() {
                 <h2>Images</h2>
                 <input type="file" multiple onChange={handleFileChange} />
             </div>
+
+            <button type="submit">Confirm</button>
 
         </form>
     )

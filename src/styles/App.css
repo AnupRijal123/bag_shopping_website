@@ -192,7 +192,7 @@ p {
 
 .top-container {
     background-color: var(--dark-gray-color);
-    height: 195px;
+    height: 155px;
     width: 100%;
 }
 
@@ -268,7 +268,7 @@ select {
 }
 
 .tag {
-    background-color: var(--dark-gray-color);
+    background-color: #f32c2c;
     width: fit-content;
     padding: 5px;
     position: absolute;
