@@ -27,7 +27,7 @@
 
 
 .admin-content {
-    margin-top: 120px;
+    margin-top: 145px;
 }
 
 .admin-login-form {
@@ -39,6 +39,27 @@
     gap: 20px;
     justify-content: center;
     padding: 10px 0px;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+thead {
+    background-color: #008000;
+}
+
+thead th {
+    color: white;
+}
+
+td {
+    word-break: break-all;
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
 }
 
 
