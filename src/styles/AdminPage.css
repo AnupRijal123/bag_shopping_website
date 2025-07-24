@@ -30,6 +30,19 @@
     margin-top: 120px;
 }
 
+.admin-login-form {
+    margin-top: 160px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+
+
 @media only screen and (max-width:520px) {
     .admin-content {
         margin-top: 150px;

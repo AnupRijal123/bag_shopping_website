@@ -1,4 +1,3 @@
-import '../styles/AdminAddItems.css';
 import { useState } from 'react';
 import { supabase } from '../supabase.js';
 
@@ -18,22 +17,17 @@ function AdminAddItems() {
     });
 
     const [files, setFiles] = useState([]);
-    console.log(files);
 
 
 
     function handleChange(event) {
-        console.log(event.target)
         const { name, value } = event.target;
-        console.log(name);
-        console.log(value);
         setBagData((prev) => (
             { ...prev, [name]: value }
         ));
     }
 
     function handleFileChange(event) {
-        // console.log(event.target.files)
         setFiles(event.target.files);
     }
 
@@ -58,13 +52,11 @@ function AdminAddItems() {
                 .from("bag-images")
                 .getPublicUrl(filePath);
 
-            // console.log(data);
-            console.log(data.publicUrl);
+
             imageUrls.push(data.publicUrl);
 
         }
 
-        console.log(imageUrls);
         return imageUrls;
 
 
@@ -83,7 +75,6 @@ function AdminAddItems() {
         }
 
         const coloursArray = bagData.available_colours.split(',');
-        console.log(coloursArray);
 
         const { error } = await supabase
             .from("bags")
@@ -125,7 +116,7 @@ function AdminAddItems() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
             <div className="form-row">
                 <h2>Bag name</h2>
                 <input type="text" name="name" value={bagData.name} onChange={handleChange} required />
@@ -133,7 +124,7 @@ function AdminAddItems() {
 
             <div className="form-row">
                 <h2>Code number</h2>
-                <input type="text" name="code" value={bagData.code} onChange={handleChange} />
+                <input type="text" name="code" value={bagData.code} onChange={handleChange} required />
             </div>
 
             <div className="form-row">
@@ -155,7 +146,7 @@ function AdminAddItems() {
 
             <div className="form-row">
                 <h2>Original Price</h2>
-                <input type="number" name="original_price" value={bagData.original_price} onChange={handleChange} />
+                <input type="number" name="original_price" value={bagData.original_price} onChange={handleChange} required />
             </div>
 
             <div className="form-row">
@@ -165,12 +156,12 @@ function AdminAddItems() {
 
             <div className="form-row">
                 <h2>In Stock Quantity</h2>
-                <input type="number" name="in_stock_quantity" value={bagData.in_stock_quantity} onChange={handleChange} />
+                <input type="number" name="in_stock_quantity" value={bagData.in_stock_quantity} onChange={handleChange} required />
             </div>
 
             <div className="form-row">
                 <h2>Available Colours</h2>
-                <input type="text" name="available_colours" value={bagData.available_colours} onChange={handleChange} placeholder="e.g. red,green,blue" />
+                <input type="text" name="available_colours" value={bagData.available_colours} onChange={handleChange} placeholder="e.g. red,green,blue" required />
             </div>
 
             <div className="form-row">
@@ -183,7 +174,9 @@ function AdminAddItems() {
                 <input type="file" multiple onChange={handleFileChange} />
             </div>
 
-            <button type="submit">Confirm</button>
+            <div className="form-row">
+                <button type="submit">Upload Bag</button>
+            </div>
 
         </form>
     )

@@ -20,7 +20,6 @@ function App() {
   let isAdminRoute = location.pathname.startsWith('/admin');
 
   useEffect(() => {
-    console.log('app.js mounted');
 
     //disable zoom and pinch in mobile and tablets
     function handleGestureStart(e) {
@@ -54,7 +53,6 @@ function App() {
         <Route path="/confirm-order" element={<ConfirmOrderPage />} />
         <Route path="/sale" element={<SalePage />} />
 
-        <Route path="/admin/*" element={<AdminPage />} />
 
         <Route path="/admin/*" element={<AdminPage />}>
 

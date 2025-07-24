@@ -5,12 +5,8 @@ import { supabase } from '../supabase.js';
 function AdminViewOrders() {
 
     const [ordersArray, setOrdersArray] = useState([]);
-    console.log(ordersArray);
 
     useEffect(() => {
-        console.log('admin order page mounted');
-
-
         getOrders();
 
     }, []);

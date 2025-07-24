@@ -80,7 +80,7 @@ p {
 
 .strike-text {
     text-decoration: line-through;
-    color: #A87676;
+    color: #c41429;
 }
 
 .link-text {
@@ -272,7 +272,7 @@ select {
 }
 
 .tag {
-    background-color: #A87676;
+    background-color: #c41429;
     width: fit-content;
     padding: 5px;
     position: absolute;
