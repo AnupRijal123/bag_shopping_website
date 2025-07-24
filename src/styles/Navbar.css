@@ -12,6 +12,7 @@
 .coloured-navbar {
     background-color: var(--dark-gray-color);
     top: 0;
+    padding: 10px 0px;
 }
 
 .navbar-first-row {

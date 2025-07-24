@@ -1,9 +1,32 @@
 import '../styles/Footer.css';
+import { useEffect, useState } from 'react';
 import SocialMediaSection from './SocialMediaSection.js';
+import { supabase } from '../supabase.js';
 
 function Footer() {
 
     const currentYear = new Date().getFullYear();
+    const [companyDetails, setCompanyDetails] = useState({});
+
+    useEffect(() => {
+
+        async function getFooterInformation() {
+            const { data, error } = await supabase
+                .from("company_information")
+                .select("email,location,contact");
+
+            if (data) {
+                setCompanyDetails(data[0]);
+            }
+
+            if (error) {
+                console.error("Error fetching data", error)
+            }
+        }
+
+        getFooterInformation();
+
+    }, []);
 
     return (
         <div className="footer">
@@ -13,7 +36,7 @@ function Footer() {
 
                 <div className="footer-column" >
                     <h2 className="white-text">For queries</h2>
-                    <p className="white-text">supppliersbulbul@gmail.com</p>
+                    <p className="white-text">{companyDetails?.email}</p>
                 </div>
 
                 <div className="footer-column">
@@ -21,7 +44,7 @@ function Footer() {
 
                     <div>
                         <p className="white-text">location</p>
-                        <p className="white-text">Kathmandu</p>
+                        <p className="white-text">{companyDetails?.location}</p>
                     </div>
 
 
@@ -30,18 +53,10 @@ function Footer() {
                         <SocialMediaSection />
                     </div>
 
-                    <div>
-                        <p className="white-text">whatsapp</p>
-                        <div className="whatsapp-image-container">
-                            <img className="whatsapp-image" src={require('../assets/logos/whatsapplogo.png')} alt="whatsapp-logo" />
-                            <p className="white-text">9851161443</p>
-                        </div>
-
-                    </div>
 
                     <div>
                         <p className="white-text">contact</p>
-                        <p className="white-text">9851161443 , 9813739391 , 9851100687</p>
+                        <p className="white-text">{companyDetails?.contact}</p>
 
                     </div>
 

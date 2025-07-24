@@ -14,7 +14,6 @@ function ItemDescriptionPage() {
     const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
 
     const [itemDetails, setItemDetails] = useState({});
-
     let [actualPrice, setActualPrice] = useState(null);
 
     const [userConfirmedItemDetails, setUserConfirmedItemDetails] = useState([]);
@@ -25,6 +24,7 @@ function ItemDescriptionPage() {
                 {
                     id: itemDetails.id,
                     name: itemDetails.name,
+                    code: itemDetails.code_number,
                     img: itemDetails.img[0],
                     category: itemDetails?.category,
                     price: actualPrice,
@@ -128,7 +128,7 @@ function ItemDescriptionPage() {
 
             {Object.keys(itemDetails).length !== 0 &&
                 <div className="section-container">
-                    <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
+                    <h2 className="item-description-heading-text black-text">{itemDetails.name}</h2>
                     <div className="item-row">
                         <div className="item-image-container">
 
@@ -172,10 +172,10 @@ function ItemDescriptionPage() {
                         <div className="item-content-container">
                             <div className="price-container">
                                 {itemDetails.discount_percentage !== null &&
-                                    <h1 className="strike-text light-gray-text">Rs {itemDetails.original_price}</h1>
+                                    <h2 className="strike-text">Rs {itemDetails.original_price}</h2>
 
                                 }
-                                <h1 className="black-text">Rs {itemDetails.original_price - (itemDetails.discount_percentage * itemDetails.original_price / 100)}</h1>
+                                <h2 className="black-text">Rs {itemDetails.original_price - (itemDetails.discount_percentage * itemDetails.original_price / 100)}</h2>
                             </div>
 
 

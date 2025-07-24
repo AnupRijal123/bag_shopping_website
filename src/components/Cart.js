@@ -65,7 +65,10 @@ function Cart(props) {
 
             <div className="cart-header">
                 <h1 className="white-text">Cart</h1>
-                <p onClick={props.closeCart} className="red-text cursor-pointer scale-hover">close</p>
+
+                <div onClick={props.closeCart} className="cart-close-button">
+                    <p className="white-text">close</p>
+                </div>
 
 
             </div>
@@ -85,7 +88,7 @@ function Cart(props) {
 
                                 <div onClick={() => { goToItemDescriptionPage(item.id, item.category) }} className="order-item-left-container cursor-pointer">
                                     <img className="order-item-image" src={item.img} alt="item-image" />
-                                    <h2 className="black-text small-text">{item.name}</h2>
+                                    <h2 className="black-text small-text light-weight-text">{item.name}</h2>
                                 </div>
 
                                 <div className="order-item-right-container">

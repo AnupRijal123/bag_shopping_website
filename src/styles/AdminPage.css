@@ -1,0 +1,71 @@
+.admin-navbar {
+    background-color: var(--light-gray-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+.admin-button-container {
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.admin-nav-link-text {
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+
+.active-button {
+    background-color: #008000;
+    color: var(--white-color);
+}
+
+
+
+.admin-content {
+    margin-top: 145px;
+}
+
+.admin-login-form {
+    margin-top: 160px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+thead {
+    background-color: #008000;
+}
+
+thead th {
+    color: white;
+}
+
+td {
+    word-break: break-all;
+    border: 1px solid black;
+}
+
+th {
+    border: 1px solid black;
+}
+
+
+
+@media only screen and (max-width:520px) {
+    .admin-content {
+        margin-top: 150px;
+    }
+}

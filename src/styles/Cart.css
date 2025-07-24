@@ -27,10 +27,9 @@
 }
 
 
-
 .cart-close-button {
-    height: fit-content;
-    padding: 2px;
+    background-color: #c41429;
+    padding: 3px;
     cursor: pointer;
 }
 
