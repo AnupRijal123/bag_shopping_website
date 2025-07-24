@@ -101,8 +101,7 @@ function AdminPage() {
 
                 <div className="admin-login-form">
                     <h1 className="center-aligned-text">Admin Login</h1>
-                    <h1>{email}</h1>
-                    <h1>{password}</h1>
+
                     <div className="form-row">
                         <h2>email</h2>
                         <input type="text" value={email}
