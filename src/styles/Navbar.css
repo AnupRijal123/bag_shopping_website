@@ -10,7 +10,7 @@
 }
 
 .coloured-navbar {
-    background-color: var(--dark-gray-color);
+    background-color: var(--white-color);
     top: 0;
     padding: 10px 0px;
 }
@@ -45,12 +45,12 @@
 .navbar-item-dropdown {
     position: absolute;
     width: 160px;
-    display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 5px 0px 5px 10px;
+    gap: 10px;
+    padding: 10px;
     box-sizing: border-box;
     display: none;
+    backdrop-filter: blur(2px);
 }
 
 .navbar-item-dropdown-container:hover .navbar-item-dropdown {
@@ -59,11 +59,24 @@
 }
 
 .coloured-navbar .navbar-item-dropdown {
-    background-color: var(--dark-gray-color);
-    box-shadow: 0px 20px 40px 10px;
+    background-color: var(--white-color);
 }
 
+.navbar-text {
+    color: var(--white-color);
+}
 
+.coloured-navbar .navbar-text {
+    color: var(--black-color);
+}
+
+.navbar-dropdown-text {
+    color: var(--white-color);
+}
+
+.coloured-navbar .navbar-dropdown-text {
+    color: var(--black-color);
+}
 
 @media only screen and (max-width:768px) {
     .navbar-first-row {
@@ -75,6 +88,6 @@
     }
 
     .navbar-item-dropdown {
-        left: -60px;
+        left: -95px;
     }
 }
