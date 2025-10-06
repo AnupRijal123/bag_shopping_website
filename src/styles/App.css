@@ -100,7 +100,7 @@ p {
 }
 
 .coloured-background-section {
-    background-color: var(--dark-gray-color) !important;
+    background-color: var(--white-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -283,6 +283,7 @@ select {
 
 .tag-text {
     font-weight: 600;
+    font-size: 11px;
 }
 
 

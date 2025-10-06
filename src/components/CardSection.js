@@ -24,11 +24,11 @@ function CardSection(props) {
                                 (
                                     <div className="tag">
                                         {item.in_stock_quantity === 0 ?
-                                            (<p className="small-text white-text tag-text">Out Of Stock</p>
+                                            (<p className=" white-text tag-text">Out Of Stock</p>
                                             )
                                             :
                                             (
-                                                <p className="small-text white-text tag-text">{item.discount_percentage ? `-${item.discount_percentage}%` : null}</p>
+                                                <p className=" white-text tag-text">{item.discount_percentage ? `-${item.discount_percentage}%` : null}</p>
                                             )
                                         }
                                     </div>

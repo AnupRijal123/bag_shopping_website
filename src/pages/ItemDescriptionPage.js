@@ -138,11 +138,11 @@ function ItemDescriptionPage() {
                                     <div className="tag">
 
                                         {itemDetails.in_stock_quantity === 0 &&
-                                            <p className="small-text white-text tag-text">Out Of Stock</p>
+                                            <p className="white-text tag-text">Out Of Stock</p>
                                         }
 
                                         {itemDetails.discount_percentage &&
-                                            <p className="small-text white-text tag-text">-{itemDetails.discount_percentage}%</p>
+                                            <p className="white-text tag-text">-{itemDetails.discount_percentage}%</p>
 
                                         }
                                     </div>
