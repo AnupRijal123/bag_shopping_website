@@ -172,7 +172,7 @@ function ConfirmOrderPage() {
 
                 <div className="order-description-container">
                     <div className="order-description-row">
-                        <h2 className="black-text">Total</h2>
+                        <h2 className="black-text">Sub Total</h2>
                         <h2 className="black-text">Rs {totalPrice}</h2>
                     </div>
 
@@ -186,7 +186,7 @@ function ConfirmOrderPage() {
                     </div>
 
                     <div className="order-description-row">
-                        <h2 className="black-text">To pay</h2>
+                        <h2 className="black-text">Total</h2>
                         <h2 className="black-text">Rs {toPayAmount}</h2>
                     </div>
 

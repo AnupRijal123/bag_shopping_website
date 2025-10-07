@@ -9,7 +9,7 @@ function SocialMediaSection() {
         async function getSocialMediaLinks() {
             const { data, error } = await supabase
                 .from("company_information")
-                .select("facebook_link,instagram_link,whatsapp_link");
+                .select("facebook_link,instagram_link,whatsapp_link,tiktok_link");
 
             if (data) {
                 setSocialMediaLinks(data[0]);
@@ -30,6 +30,10 @@ function SocialMediaSection() {
 
             <a href={socialMediaLinks?.instagram_link}>
                 <img className="social-media-icon" src={require('../assets/logos/instagram.png')} alt="insta-logo" />
+            </a>
+
+            <a href={socialMediaLinks?.tiktok_link}>
+                <img className="social-media-icon" src={require('../assets/logos/tiktok.png')} alt="tiktok-logo" />
             </a>
 
             <a href={socialMediaLinks?.whatsapp_link}>
