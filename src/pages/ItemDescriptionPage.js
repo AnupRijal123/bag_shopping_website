@@ -1,5 +1,5 @@
 import '../styles/ItemDescriptionPage.css';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { supabase } from '../supabase.js';
 
@@ -7,16 +7,16 @@ function ItemDescriptionPage() {
 
     const urlParamater = useParams();
     const id = urlParamater.id;
-    const itemImageContainerRef = useRef();
     const navigate = useNavigate();
     const [selectedColour, setSelectedColour] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [showAddedToCartMessage, setShowAddedToCartMessage] = useState(false);
-
     const [itemDetails, setItemDetails] = useState({});
     let [actualPrice, setActualPrice] = useState(null);
-
     const [userConfirmedItemDetails, setUserConfirmedItemDetails] = useState([]);
+    const [selectedImageUrl, setSelectedImageUrl] = useState(null);
+
+
     useEffect(() => {
         //checking if itemDetails is not empty
         if (Object.keys(itemDetails).length !== 0) {
@@ -50,6 +50,9 @@ function ItemDescriptionPage() {
 
             if (data && data.length !== 0) {
                 setItemDetails(data[0]);
+
+                //default image is first image in array
+                setSelectedImageUrl(data[0].img[0]);
             } else {
                 setItemDetails({});
             }
@@ -69,20 +72,8 @@ function ItemDescriptionPage() {
 
     }, [selectedColour]);
 
-    function handleImageNavigation(value) {
-        if (value === 'left') {
-            itemImageContainerRef.current.scrollBy(-350, 0);
-        }
-        if (value === 'right') {
-            itemImageContainerRef.current.scrollBy(350, 0);
-        }
-
-    }
 
     function goToConfirmOrderPage() {
-
-
-
 
         if (selectedColour.length === 0) {
             setShowErrorMessage(true);
@@ -128,7 +119,7 @@ function ItemDescriptionPage() {
 
             {Object.keys(itemDetails).length !== 0 &&
                 <div className="section-container">
-                    <h2 className="item-description-heading-text black-text">{itemDetails.name}</h2>
+
                     <div className="item-row">
                         <div className="item-image-container">
 
@@ -152,24 +143,30 @@ function ItemDescriptionPage() {
                             }
 
 
+                            {selectedImageUrl !== null &&
+                                <img className="item-image" src={selectedImageUrl} alt="selected-item-image" />
+                            }
 
-                            <div ref={itemImageContainerRef} className="image-container">
 
 
-                                {itemDetails.img.map((item) => (
-                                    <img key={item} className="item-image" src={item} alt="item-image" />
+                            <div className="image-select-container">
+                                {itemDetails.img.map((item, index) => (
+                                    <img onClick={() => {
+                                        setSelectedImageUrl(item);
+                                    }}
+                                        key={index}
+                                        src={item}
+                                        alt="item-image" />
                                 ))}
-
-
                             </div>
 
-                            <div className="image-navigate-button-container">
-                                <img onClick={() => { handleImageNavigation('left') }} className="arrow-icon-image" src={require('../assets/icons/left_arrow.png')} alt="left" />
-                                <img onClick={() => { handleImageNavigation('right') }} className="arrow-icon-image" src={require('../assets/icons/right_arrow.png')} alt="right" />
-                            </div>
+
+
                         </div>
 
                         <div className="item-content-container">
+                            <h1 className="item-description-heading-text black-text">{itemDetails.name}</h1>
+
                             <div className="price-container">
                                 {itemDetails.discount_percentage !== null &&
                                     <h2 className="strike-text">Rs {itemDetails.original_price}</h2>
