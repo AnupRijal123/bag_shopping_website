@@ -54,7 +54,7 @@ function Navbar() {
         <>
             <div className={`navbar ${isScreenScrolled === true && 'coloured-navbar'} ${location.pathname !== '/' && 'coloured-navbar'}`}>
                 <div className="navbar-first-row">
-                    <img className="brand-logo" src={require('../assets/logos/bulbul_logo.png')} alt="logo" />
+                    <img className="brand-logo" src={require('../assets/logos/bulbul.png')} alt="logo" />
                     <div className="navbar-first-row-items">
                         <p onClick={goToHome} className="cursor-pointer scale-hover navbar-text">Home</p>
                         <p onClick={handleCartClick} className=" cursor-pointer scale-hover navbar-text">Cart</p>
