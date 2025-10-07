@@ -21,7 +21,7 @@ function ConfirmOrderPage() {
         return total + item.price;
     }, 0);
 
-    const deliveryCharge = 150;
+    const deliveryCharge = orderItemsArray.length === 0 ? 0 : 150;
 
     const toPayAmount = totalPrice + deliveryCharge;
 
@@ -172,13 +172,13 @@ function ConfirmOrderPage() {
 
                 <div className="order-description-container">
                     <div className="order-description-row">
-                        <h2 className="black-text">Sub Total</h2>
-                        <h2 className="black-text">Rs {totalPrice}</h2>
+                        <p className="black-text">Sub Total</p>
+                        <p className="black-text">Rs {totalPrice}</p>
                     </div>
 
                     <div className="order-description-row">
-                        <h2 className="black-text">Delivery Charge</h2>
-                        <h2 className="black-text">Rs {deliveryCharge}</h2>
+                        <p className="black-text">Shipping Cost</p>
+                        <p className="black-text">Rs {deliveryCharge}</p>
                     </div>
 
                     <div className="addition-symbol-container">
@@ -190,12 +190,16 @@ function ConfirmOrderPage() {
                         <h2 className="black-text">Rs {toPayAmount}</h2>
                     </div>
 
-                    <p className="black-text small-text ">Estimated delivery : {formattedDeliveryStartDate} to {formattedDeliveryEndDate}</p>
+
+                    {orderItemsArray.length !== 0 &&
+                        <p className="black-text small-text ">Estimated delivery : {formattedDeliveryStartDate} to {formattedDeliveryEndDate}</p>
+                    }
+
                 </div>
 
 
                 <div className="customer-information-input-container">
-                    <h2 className="black-text">For delivery, Please enter your following details</h2>
+                    <h2 className="black-text">Shipping & Billing Information</h2>
 
                     <div className="customer-input-row">
                         <p className="black-text">Full Name</p>
