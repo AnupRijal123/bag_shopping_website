@@ -6,7 +6,7 @@ function Footer() {
 
     return (
         <div className="footer">
-            <h2>Bulbul Bags</h2>
+            <img className="footer-logo" src={require('../assets/logos/bulbul.png')} alt="logo" />
             <SocialMediaSection />
         </div>
     )

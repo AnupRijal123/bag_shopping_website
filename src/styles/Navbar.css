@@ -11,6 +11,7 @@
 
 .coloured-navbar {
     background-color: var(--white-color);
+    border-bottom: 1px solid var(--black-color);
     top: 0;
     padding: 10px 0px;
 }
