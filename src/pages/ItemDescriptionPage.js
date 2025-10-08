@@ -15,6 +15,7 @@ function ItemDescriptionPage() {
     let [actualPrice, setActualPrice] = useState(null);
     const [userConfirmedItemDetails, setUserConfirmedItemDetails] = useState([]);
     const [selectedImageUrl, setSelectedImageUrl] = useState(null);
+    const [activeImageIndex, setActiveImageIndex] = useState(0);
 
 
     useEffect(() => {
@@ -151,12 +152,14 @@ function ItemDescriptionPage() {
 
                             <div className="image-select-container">
                                 {itemDetails.img.map((item, index) => (
-                                    <img onClick={() => {
-                                        setSelectedImageUrl(item);
-                                    }}
+                                    <img className={activeImageIndex === index ? 'active-image' : ''}
+                                        onClick={() => {
+                                            setSelectedImageUrl(item);
+                                            setActiveImageIndex(index);
+                                        }}
                                         key={index}
                                         src={item}
-                                        alt="item-image" />
+                                        alt="selection-image" />
                                 ))}
                             </div>
 

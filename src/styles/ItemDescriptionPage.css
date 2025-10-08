@@ -55,13 +55,18 @@
     padding: 10px 0px;
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .image-select-container img {
     width: 60px;
     height: 60px;
+    object-fit: contain;
     cursor: pointer;
+}
+
+.image-select-container .active-image {
+    border: 2px solid #c41429;
 }
 
 @media only screen and (max-width:768px) {
