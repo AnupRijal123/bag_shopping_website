@@ -112,7 +112,6 @@ p {
 .coloured-background-section-image-container {
     overflow: hidden;
     width: 50%;
-    height: 400px;
 }
 
 .coloured-background-section-image {
@@ -292,14 +291,8 @@ select {
         padding: 30px 20px;
     }
 
-    .coloured-background-section-image-container {
-        width: 100%;
+    .coloured-background-section {
+        display: none;
     }
 
-
-
-    .coloured-background-content {
-        margin: auto;
-        width: 80%;
-    }
 }

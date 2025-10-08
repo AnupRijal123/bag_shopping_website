@@ -72,6 +72,22 @@ function HomePage() {
                 </div>
             </div>
 
+            <div className="section-container coloured-background-section">
+
+                <div className="coloured-background-content">
+                    <h1 className="black-text">Find Us on Social Media</h1>
+                </div>
+
+                <div className="coloured-background-section-image-container">
+
+                    {modelImageUrl.length !== 0 &&
+                        <img className="coloured-background-section-image" src={modelImageUrl} alt="model-image" />
+                    }
+                </div>
+
+
+            </div>
+
 
         </>
     )
