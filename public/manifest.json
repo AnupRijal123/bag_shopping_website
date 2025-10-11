@@ -3,17 +3,17 @@
   "name": "Bulbul Bags",
   "icons": [
     {
-      "src": "bulbul_logo.png",
+      "src": "bulbul.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "bulbul_logo.png",
+      "src": "bulbul.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "bulbul_logo.png",
+      "src": "bulbul.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -100,7 +100,7 @@ p {
 }
 
 .coloured-background-section {
-    background-color: var(--dark-gray-color) !important;
+    background-color: var(--white-color);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -111,8 +111,7 @@ p {
 
 .coloured-background-section-image-container {
     overflow: hidden;
-    width: 50%;
-    height: 400px;
+    width: 60%;
 }
 
 .coloured-background-section-image {
@@ -127,9 +126,9 @@ p {
 }
 
 .coloured-background-content {
-    width: 40%;
-    padding: 20px;
-    height: fit-content;
+    width: 30%;
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -283,6 +282,7 @@ select {
 
 .tag-text {
     font-weight: 600;
+    font-size: 11px;
 }
 
 
@@ -291,14 +291,8 @@ select {
         padding: 30px 20px;
     }
 
-    .coloured-background-section-image-container {
-        width: 100%;
+    .coloured-background-section {
+        display: none;
     }
 
-
-
-    .coloured-background-content {
-        margin: auto;
-        width: 80%;
-    }
 }

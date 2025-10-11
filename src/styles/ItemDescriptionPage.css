@@ -16,20 +16,9 @@
     position: relative;
 }
 
-.image-container {
-    width: 350px;
-    display: flex;
-    overflow: auto;
-    scroll-behavior: smooth;
-}
-
-.image-container::-webkit-scrollbar {
-    display: none;
-}
-
-
 .item-image {
     width: 350px;
+    height: 400px;
     object-fit: contain;
 }
 
@@ -62,10 +51,28 @@
     align-items: center;
 }
 
+.image-select-container {
+    padding: 10px 0px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.image-select-container img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.image-select-container .active-image {
+    border: 2px solid #c41429;
+}
+
 @media only screen and (max-width:768px) {
     .item-content-container {
         width: 100%;
-        padding: 0px;
+        padding: 20px 0px 0px 0px;
     }
 
 

@@ -64,7 +64,7 @@ function Cart(props) {
         <div className={`cart ${props.cartClicked === true ? 'show-cart' : 'close-cart'} `}>
 
             <div className="cart-header">
-                <h1 className="white-text">Cart</h1>
+                <h1 className="black-text">Cart</h1>
 
                 <div onClick={props.closeCart} className="cart-close-button">
                     <p className="white-text">close</p>
