@@ -9,24 +9,9 @@ function HomePage() {
 
     const [newCollectionArray, setNewCollectionArray] = useState([])
 
-    const [modelImageUrl, setModelImageUrl] = useState('');
-    const modelImageArray = [
-        {
-            id: 7,
-            imgUrl: 'https://amvrxmqetzmlniyrrlyc.supabase.co/storage/v1/object/public/backpacks//backpack1.jpeg',
-            category: 'backpack',
-            description: 'This is test description'
-        },
-        {
-            id: 9,
-            imgUrl: 'https://amvrxmqetzmlniyrrlyc.supabase.co/storage/v1/object/public/handbags//handbag1.jpeg',
-            category: 'handbag',
-            description: 'This is test description'
-        }
-    ];
+    const [modelImageArray, setModelImageArray] = useState([]);
 
     const navigate = useNavigate();
-
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -46,22 +31,27 @@ function HomePage() {
             }
         }
 
-        async function getModelImage() {
+
+
+        getNewCollectionArray();
+
+    }, []);
+
+    useEffect(() => {
+        async function getModelsImages() {
             const { data, error } = await supabase
-                .from("homepage_model_image")
-                .select("image_url");
+                .from("models_list")
+                .select("*");
 
             if (data) {
-                setModelImageUrl(data[0].image_url);
+                setModelImageArray(data);
             }
             if (error) {
-                console.error('Error fetching model image', error);
+                console.error("Error fetching data");
             }
         }
 
-        getNewCollectionArray();
-        getModelImage();
-
+        getModelsImages();
     }, []);
 
 
@@ -76,10 +66,10 @@ function HomePage() {
 
 
             {modelImageArray.map((item, index) => (
-                <div key={item.id} className={`section-container coloured-background-section ${index % 2 == 0 && 'exchange-position'}`}>
+                <div key={item.id} className={`section-container coloured-background-section ${index % 2 === 0 && 'exchange-position'}`}>
 
                     <div className="coloured-background-section-image-container">
-                        <img className="coloured-background-section-image" src={item.imgUrl} alt="model-image" />
+                        <img className="coloured-background-section-image" src={item.img_url} alt="model-image" />
                     </div>
 
                     <div className="coloured-background-content">
