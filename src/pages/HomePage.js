@@ -1,13 +1,31 @@
+import '../styles/HomePage.css';
 import Banner from '../components/Banner.js';
 import CardSection from '../components/CardSection.js';
 import { useEffect, useState } from 'react';
 import { supabase } from '../supabase.js';
+import { useNavigate } from 'react-router';
 
 function HomePage() {
 
     const [newCollectionArray, setNewCollectionArray] = useState([])
 
     const [modelImageUrl, setModelImageUrl] = useState('');
+    const modelImageArray = [
+        {
+            id: 7,
+            imgUrl: 'https://amvrxmqetzmlniyrrlyc.supabase.co/storage/v1/object/public/backpacks//backpack1.jpeg',
+            category: 'backpack',
+            description: 'This is test description'
+        },
+        {
+            id: 9,
+            imgUrl: 'https://amvrxmqetzmlniyrrlyc.supabase.co/storage/v1/object/public/handbags//handbag1.jpeg',
+            category: 'handbag',
+            description: 'This is test description'
+        }
+    ];
+
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -56,37 +74,30 @@ function HomePage() {
                 <CardSection cardItemsArray={newCollectionArray} cardItemsHeadingText="Latest Drop" />
             </div>
 
-            <div className="section-container coloured-background-section">
 
-                <div className="coloured-background-section-image-container">
+            {modelImageArray.map((item, index) => (
+                <div key={item.id} className={`section-container coloured-background-section ${index % 2 == 0 && 'exchange-position'}`}>
 
-                    {modelImageUrl.length !== 0 &&
-                        <img className="coloured-background-section-image" src={modelImageUrl} alt="model-image" />
-                    }
+                    <div className="coloured-background-section-image-container">
+                        <img className="coloured-background-section-image" src={item.imgUrl} alt="model-image" />
+                    </div>
+
+                    <div className="coloured-background-content">
+                        <div onClick={() => {
+                            navigate(`/category/${item.category}/${item.id}`);
+                        }}
+                            className="button-layout button-transparent-background button-gray-border">
+                            <div className="button-background-container button-gray-background"></div>
+                            <p className="button-text dark-gray-text">Show more</p>
+                        </div>
+
+                    </div>
                 </div>
-
-                <div className="coloured-background-content">
-                    <h1 className="black-text">Find Us on Social Media</h1>
+            ))}
 
 
-                </div>
-            </div>
-
-            <div className="section-container coloured-background-section">
-
-                <div className="coloured-background-content">
-                    <h1 className="black-text">Find Us on Social Media</h1>
-                </div>
-
-                <div className="coloured-background-section-image-container">
-
-                    {modelImageUrl.length !== 0 &&
-                        <img className="coloured-background-section-image" src={modelImageUrl} alt="model-image" />
-                    }
-                </div>
 
 
-            </div>
 
 
         </>
