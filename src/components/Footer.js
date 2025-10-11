@@ -8,6 +8,7 @@ function Footer() {
         <div className="footer">
             <img className="footer-logo" src={require('../assets/logos/bulbul.png')} alt="logo" />
             <SocialMediaSection />
+            <h2 className="light-gray-text">Website Design, Development & Coding by Anup Rijal</h2>
         </div>
     )
 }

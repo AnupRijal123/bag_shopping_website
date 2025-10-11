@@ -14,3 +14,7 @@
     position: absolute;
     top: 125px;
 }
+
+.footer h2 {
+    font-size: 10px;
+}
